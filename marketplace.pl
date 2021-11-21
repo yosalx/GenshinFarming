@@ -9,7 +9,7 @@ gettoMarket :-  write('Welcome to the shop adventurer!'), nl,
                 write(' 3. SELL : I want to sell some stuff !'),nl,
 
                 write('What do you want to do ?'),nl,
-                read(Choice),nl
+                read(Choice),nl,
 
                 (Choice = BACK ->
                     write('Okay, make sure to come back later !')
