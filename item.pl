@@ -4,7 +4,7 @@ seeds(0, Wortel, 1).
 seeds(0, Tomat, 2).
 seeds(0, Kentang, 3).
 seeds(0, Jagung, 4).
-seeds(0, S, stroberi).
+seeds(0, Stroberi, 5).
 
 :- dynamic(fish/3).
 fish(0, Tuna, 1).
