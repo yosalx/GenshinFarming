@@ -1,9 +1,8 @@
-gettoMarket :-  
-                write('|--------------------------------------------------|'),nl,
+toMarket :-     write('|--------------------------------------------------|'),nl,
                 write('|          Welcome To The Marketplace !            |'),nl,
-                write('|            What do you want to do ?              |')
+                write('|            What do you want to do ?              |'),nl,
                 write('|--------------------------------------------------|'),nl,
-                write('|         1. BACK : I\'ll be back soon !           |'),nl,           
+                write('|         1. BACK : I\'ll be back soon !            |'),nl,           
                 write('|         2. BUY  : I want to buy some stuff !     |'),nl,
                 write('|         3. SELL : I want to sell some stuff !    |'),nl,
                 write('|--------------------------------------------------|'),nl,
@@ -26,15 +25,14 @@ gettoMarket :-
                     write('|         7. Cow (1500 golds)                |'),nl,
                     write('|         8. Level 2 Shovel                  |'),nl,
                     write('|         9. Level 3 Fishing rod             |'),nl,
-                    write('|--------------------------------------------|'),nl,
+                    write('|--------------------------------------------|'),nl
 
-                    read(Choicebuy),nl,
+                    /*read(Choicebuy),nl,*/
                     ;
-                    
                 Choice = sell ->
                     write('|--------------------------------------------|'),nl,
                     write('|          What do you want to sell ?        |'),nl,
-                    write('|--------------------------------------------|'),nl,
+                    write('|--------------------------------------------|'),nl
                     /*Display item to sell*/
                 ).
 
