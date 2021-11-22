@@ -1,7 +1,7 @@
 inventory :-
     totalInventory(Sum),
     Sum is 0,
-    write('Inventory sementara kosong').
+    write('Inventory sementara kosong'), nl.
 
 inventory :-
     totalInventory(Sum),
