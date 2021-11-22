@@ -25,9 +25,7 @@ peta :-
     asserta(lokasi(air,6,10)),
     asserta(lokasi(air,7,10)),
     
-    asserta(lokasi(digged_tile,10,10)),
+    asserta(lokasi(digged_tile,10,10)).
 
-    asserta(lokasi_farm(wortel,12,13,2)),
-    asserta(lokasi_farm(wortel,13,13,6)).
 
 
