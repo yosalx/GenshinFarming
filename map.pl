@@ -1,9 +1,14 @@
 :- dynamic(lokasi/3).
+:- dynamic(lokasi_farm/4).
+
+start :-
+    asserta(game_start(true)),
+    [peta],
+    [explore],
+    peta.
 
 map :-
-    [peta],
-    peta,
-    /* game_start(true), !, */
+    game_start(true), !,
     draw_map.
 
 
