@@ -3,7 +3,7 @@
 game_start(false).
 
 start :-
-    write('~ Harvest Star ~'), nl, nl, 
+    write('~ Genshin Farming ~'), nl, nl, 
     write('1. start     : untuk memulai petualanganmu'), nl,
     write('2. map       : menampilkan peta'), nl,
     write('3. status    : menampilkan kondisimu terkini'), nl,
@@ -21,7 +21,7 @@ start :-
 
 pilihClass :-
     repeat,
-    write('Welcome to Harvest Star. Choose your job\n1. Fisherman\n2. Farmer\n3. Rancher'), nl,
+    write('Welcome to Genhsin Farming. Choose your job\n1. Fisherman\n2. Farmer\n3. Rancher'), nl,
     read(X),
     pickClass(X),!,
     createChara(X)
