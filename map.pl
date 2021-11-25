@@ -1,16 +1,12 @@
 :- dynamic(lokasi/3).
 :- dynamic(lokasi_farm/4).
 
-start :-
-    asserta(game_start(true)),
+include_map :-
     [peta],
-    [explore],
-    peta.
-
+    load_peta.
 map :-
     game_start(true), !,
     draw_map.
-
 
 /* Tembok Kiri */
 gambar(A,B) :-
@@ -224,8 +220,6 @@ gambar(A,B) :-
     A1 is A+1,
     gambar(A1,B).
 
-
-
 /* Stroberi */
 gambar(A,B) :-
     A > 0,
@@ -252,6 +246,34 @@ gambar(A,B) :-
     write('S'),
     A1 is A+1,
     gambar(A1,B).
+
+/* Jagung */
+gambar(A,B) :-
+    A > 0,
+    A < 18,
+    B > 0,
+    B < 15,
+    jagung_time(Time),
+    lokasi_farm(jagung,A,B,Age),
+    (\+ lokasi(player,A,B)),
+    Age < Time, !,
+    write('j'),
+    A1 is A+1,
+    gambar(A1,B).
+
+gambar(A,B) :-
+    A > 0,
+    A < 18,
+    B > 0,
+    B < 15,
+    jagung_time(Time),
+    lokasi_farm(jagung,A,B,Age),
+    (\+ lokasi(player,A,B)),
+    Time =< Age, !,
+    write('J'),
+    A1 is A+1,
+    gambar(A1,B).
+
 
 
 draw_map :-

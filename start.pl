@@ -2,7 +2,19 @@
 
 game_start(false).
 
+init_game :-
+    retract(game_start(false)),
+    asserta(game_start(true)),
+    [map],
+    include_map,
+    [explore],
+    include_explore.
+
+start_debug :-
+    init_game.
+
 start :-
+    init_game,
     write(''),nl,
     write('..######...########.##....##..######..##.....##.####.##....##.########....###....########..##.....##.####.##....##..######..'),nl,
     write('.##....##..##.......###...##.##....##.##.....##..##..###...##.##.........##.##...##.....##.###...###..##..###...##.##....##.'),nl,

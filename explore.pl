@@ -1,3 +1,15 @@
+:- dynamic(atQuest/1).
+:- dynamic(atHouse/1).
+:- dynamic(atMarketplace/1).
+:- dynamic(atRanch/1).
+
+include_explore :- 
+    [explore_w],
+    [explore_a],
+    [explore_s],
+    [explore_d],
+    asserta(atRanch(0)), asserta(atMarketplace(0)), asserta(atQuest(0)), asserta(atHouse(0)).
+
 nabrak :-
     write('Anda menabrak.'),
     nl,
@@ -5,56 +17,5 @@ nabrak :-
     nl.
 
 
-w :- 
-    game_start(true),
-    /* battle(0), shop(0), atquest(0), */
-    lokasi(player, X, Y),
-    YNew is Y-1,
-    (\+ lokasi(_, X, YNew)),
-    YNew > 0, YNew < 15, !,
-    retract(lokasi(player, X, Y)),
-    asserta(lokasi(player, X, YNew)),
-    write('Anda bergeser ke atas.'), !,
-    nl,
-    map.
 
-
-a :- 
-    game_start(true),
-    /* battle(0), shop(0), atquest(0), */
-    lokasi(player, X, Y),
-    XNew is X-1,
-    (\+ lokasi(_, XNew, Y)),
-    XNew > 0, XNew < 18, !,
-    retract(lokasi(player, X, Y)),
-    asserta(lokasi(player, XNew, Y)),
-    write('Anda bergeser ke kiri.'), !,
-    nl,
-    map.
-
-s :- 
-    game_start(true),
-    /* battle(0), shop(0), atquest(0), */
-    lokasi(player, X, Y),
-    YNew is Y+1,
-    (\+ lokasi(_, X, YNew)),
-    YNew > 0, YNew < 15, !,
-    retract(lokasi(player, X, Y)),
-    asserta(lokasi(player, X, YNew)),
-    write('Anda bergeser ke bawah.'), !,
-    nl,
-    map.
-
-d :- 
-    game_start(true),
-    /* battle(0), shop(0), atquest(0), */
-    lokasi(player, X, Y),
-    XNew is X+1,
-    (\+ lokasi(_, XNew, Y)),
-    XNew > 0, XNew < 18, !,
-    retract(lokasi(player, X, Y)),
-    asserta(lokasi(player, XNew, Y)),
-    write('Anda bergeser ke kanan.'), !,
-    nl,
-    map.
 
