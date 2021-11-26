@@ -18,8 +18,12 @@ showItems :-
     forall((item(Sum, Name)),(listItems(Sum, Name))).
 
 listItems(Sum, Name):-
-    write(Sum), write(' '), write(Name), nl
-    .
+    (Sum > 0 ->
+        write(Sum), write(' '), write(Name), nl
+        ;
+    Sum is 0 ->
+        write('')
+    ).
 
 /* equipment(nama, level, terpakai atau tidak) */
 /* 1 untuk terpakai, 0 untuk tidak */
@@ -33,6 +37,9 @@ showEquipments :-
     . 
 
 listEquipments(Name, Lvl, Used) :-
-    Used is 0,
-    write('1 Level '), write(Lvl), write(' '), write(Name),nl
-    . 
+    (Used = 0 ->
+        write('1'), write(' Level '), write(Lvl), write(' '), write(Name), nl
+        ;
+    Used = 1 ->
+        write('')
+    ).
