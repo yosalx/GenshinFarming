@@ -12,12 +12,14 @@ item(0, lele).
 item(0, gurame).
 item(0, susu).
 item(0, telur).
-item(0, wortel).
+item(0, wol).
 
 showItems :-
-    item(Sum, Name),
-    Sum > 0,
-    write(Sum), write(' '), write(Name), nl, fail.
+    forall((item(Sum, Name)),(listItems(Sum, Name))).
+
+listItems(Sum, Name):-
+    write(Sum), write(' '), write(Name), nl
+    .
 
 /* equipment(nama, level, terpakai atau tidak) */
 /* 1 untuk terpakai, 0 untuk tidak */
@@ -27,6 +29,10 @@ equipment(fishingRod, 1, 0).
 equipment(ranchingKit, 1, 0).
 
 showEquipments :-
-    equipment(Name, Lvl, Used),
+    forall((equipment(Name, Lvl, Used)), (listEquipments(Name, Lvl, Used)))
+    . 
+
+listEquipments(Name, Lvl, Used) :-
     Used is 0,
-    write('1 Level '), write(Lvl), write(' '), write(Name),nl,fail.
+    write('1 Level '), write(Lvl), write(' '), write(Name),nl
+    . 
