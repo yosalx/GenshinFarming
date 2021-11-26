@@ -1,3 +1,5 @@
+:- include('items.pl').
+
 toMarket :-     write('|--------------------------------------------------|'),nl,
                 write('|          Welcome To The Marketplace !            |'),nl,
                 write('|            What do you want to do ?              |'),nl,
@@ -25,9 +27,12 @@ toMarket :-     write('|--------------------------------------------------|'),nl
                     write('|         7. Cow (1500 golds)                |'),nl,
                     write('|         8. Level 2 Shovel                  |'),nl,
                     write('|         9. Level 3 Fishing rod             |'),nl,
-                    write('|--------------------------------------------|'),nl
+                    write('|--------------------------------------------|'),nl,
 
-                    /*read(Choicebuy),nl,*/
+                    read_integer(Pick),nl,
+                    (Pick = 1 ->
+
+                        )
                     ;
                 Choice = sell ->
                     write('|--------------------------------------------|'),nl,
