@@ -1,3 +1,4 @@
+:- consult(item).
 inventory :-
     totalInventory(Sum),
     Sum is 0,
@@ -6,7 +7,21 @@ inventory :-
 inventory :-
     totalInventory(Sum),
     Sum > 0,
-    write('Your inventory ('), write(sum), write(' /100)'), nl.
+    write('Your inventory ('), write(Sum), write(' / 100)'), nl, nl,
+    showEquipments,
+    showItems.
 
 :- dynamic(totalInventory/1).
-totalInventory(0).
+totalInventory(10).
+
+addInventory(N) :-
+    totalInventory(Sum),
+    NewSum is Sum + N,
+    retract(totalInventory(Sum)),
+    asserta(totalInventory(NewSum)).
+
+delInventory(N) :-    
+    totalInventory(Sum),
+    NewSum is Sum - N,
+    retract(totalInventory(Sum)),
+    asserta(totalInventory(NewSum)).

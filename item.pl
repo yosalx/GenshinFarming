@@ -1,26 +1,32 @@
-/* jenisitem(jumlah, nama item, ID item) */
-:- dynamic(seeds/3).
-seeds(0, Wortel, 1).
-seeds(0, Tomat, 2).
-seeds(0, Kentang, 3).
-seeds(0, Jagung, 4).
-seeds(0, Stroberi, 5).
+/* jenisitem(jumlah, nama item) */
+:- dynamic(item/2).
+item(0, wortel).
+item(0, tomat).
+item(0, kentang).
+item(5, jagung).
+item(6, stroberi).
+item(0, tuna).
+item(0, salmon).
+item(0, tongkol).
+item(0, lele).
+item(0, gurame).
+item(0, susu).
+item(0, telur).
+item(0, wortel).
 
-:- dynamic(fish/3).
-fish(0, Tuna, 1).
-fish(0, Salmon, 2).
-fish(0, Tongkol, 3).
-fish(0, Lele, 4).
-fish(0, Gurame, 5).
+showItems :-
+    item(Sum, Name),
+    Sum > 0,
+    write(Sum), write(' '), write(Name), nl, fail.
 
-:- dynamic(dairy/3).
-dairy(0, Susu, 1).
-dairy(0, Telur, 2).
-dairy(0, Wortel, 3).
-
-:- dynamic (equipment/3).
 /* equipment(nama, level, terpakai atau tidak) */
 /* 1 untuk terpakai, 0 untuk tidak */
+:- dynamic(equipment/3).
 equipment(shovel, 1, 0).
 equipment(fishingRod, 1, 0).
 equipment(ranchingKit, 1, 0).
+
+showEquipments :-
+    equipment(Name, Lvl, Used),
+    Used is 0,
+    write('1 Level '), write(Lvl), write(' '), write(Name),nl,fail.
