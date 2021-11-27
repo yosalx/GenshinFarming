@@ -1,4 +1,5 @@
-:- include('items.pl').
+:- include('ranching.pl').
+:- include('item.pl').
 
 toMarket :-     write('|--------------------------------------------------|'),nl,
                 write('|          Welcome To The Marketplace !            |'),nl,
@@ -30,15 +31,37 @@ toMarket :-     write('|--------------------------------------------------|'),nl
                     write('|--------------------------------------------|'),nl,
 
                     read_integer(Pick),nl,
-                    (Pick = 1 ->
-
-                        )
+                    (Pick = 1 -> write('Not implemented yet')
+                        ;
+                    Pick = 2 -> write('Not implemented yet');
+                    Pick = 3 -> write('Not implemented yet');
+                    Pick = 4 -> write('Not implemented yet');
+                    Pick = 5 ->
+                        addanimal(1, chicken)
+                        ;
+                    Pick = 6 ->
+                        addanimal(1, sheep)
+                        ;
+                    Pick = 7 ->
+                        addanimal(1, cow)
+                        ;
+                    Pick = 8 -> write('Not implemented yet');
+                    Pick = 9 -> write('Not implemented yet')
+                    )
                     ;
                 Choice = sell ->
-                    write('|--------------------------------------------|'),nl,
-                    write('|          What do you want to sell ?        |'),nl,
-                    write('|--------------------------------------------|'),nl
-                    /*Display item to sell*/
+                    write('|----------------------------------------------------|'),nl,
+                    write('|          Oh you want to sell me something ?        |'),nl,
+                    write('|              What dou you have here ?              |'),nl,
+                    write('|----------------------------------------------------|'),nl,
+                    showanimal,nl,
+                    showItems,nl,
+                    showEquipments,nl,
+                    write('|----------------------------------------------------|'),nl,
+                    write('|              Wow, as expected of you !             |'),nl,
+                    write('|            Now what do you want to sell ?          |'),nl,
+                    write('|----------------------------------------------------|'),nl
+                    
                 ).
 
 
