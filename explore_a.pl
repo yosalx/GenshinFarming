@@ -23,7 +23,8 @@ a :-
     nl,
     retract(atMarketplace(0)),
     asserta(atMarketplace(1)), !,
-    nl.
+    nl,
+    toMarket.
 
 /* Masuk ranch */
 a :- 
@@ -36,7 +37,8 @@ a :-
     nl,
     retract(atRanch(0)),
     asserta(atRanch(1)), !,
-    nl.
+    nl,
+    toRanch.
 
 /* Masuk House */
 a :- 

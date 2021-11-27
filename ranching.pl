@@ -47,3 +47,5 @@ decreaseanimal(N, Name) :-
     NewSum is Sum - N,
     retract(animal(Sum)),
     asserta(animal(NewSum, Name)).
+
+

@@ -16,6 +16,15 @@ nabrak :-
     write('Ketik \'map\' untuk melihat posisi Anda.'),
     nl.
 
+exit:-
+ retract(atRanch(1)), asserta(atRanch(0)),!.
 
+exit:-
+ retract(atMarketplace(1)), asserta(atMarketplace(0)),!.
 
+exit:-
+ retract(atQuest(1)), asserta(atQuest(0)),!.
+ 
+exit:-
+ retract(atHouse(1)), asserta(atHouse(0)),!.
 
