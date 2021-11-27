@@ -37,6 +37,28 @@ addItem(Item, Sum) :-
         write('Inventory Penuh')
     ).
 
+useItem(Item, Sum) :-
+    itemList(Items),
+    (member([Item, CurrSum], Items) ->
+        (CurrSum > Sum ->
+            NewSum is CurrSum - Sum,
+            delete(Items, [Item, CurrSum], TempItems),
+            append(TempItems, [[Item, NewSum]], NewItems),
+            retract(itemList(Items)),
+            assertz(itemList(NewItems)),
+            delInventory(Sum)
+        ; CurrSum = Sum ->
+            delete(Items, [Item, Sum], NewItems),
+            retract(itemList(Items)),
+            assertz(itemList(NewItems)),
+            delInventory(Sum)
+        ;
+            write('Not Enough '), write(Item)
+        )
+    ;
+        write('You do not have '), write(Item), write(' in your inventory')
+    ).
+
 throwItem :-
     write('Your Inventory'), nl, nl,
     showEquipments,
