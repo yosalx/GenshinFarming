@@ -37,6 +37,11 @@ addItem(Item, Sum) :-
         write('Inventory Penuh')
     ).
 
+useItem(_, Count) :- 
+    Count =< 0, !, 
+    write(''), 
+    fail.
+    
 useItem(Item, Sum) :-
     itemList(Items),
     (member([Item, CurrSum], Items) ->
