@@ -20,8 +20,8 @@ toRanch :-  write(''),nl,
 
 
 :- dynamic(animal/2).
-animal(1, cow).
-animal(1, sheep).
+animal(0, cow).
+animal(0, sheep).
 animal(1, chicken).
 
 showanimal :-
@@ -29,18 +29,21 @@ forall((animal(Sum, Name)), (listanimal(Sum, Name)))
     .
 
 listanimal(Sum, Name) :-
-    Sum > 0,
-    write(' >'), write(Sum), write(' '), write(Name),nl
+    (Sum > 0 ->
+        write(Sum), write(' '), write(Name),nl;
+    Sum is 0 ->
+        write('')
+    )
     . 
 
 addanimal(N, Name) :-
     animal(Sum, Name),
     NewSum is Sum + N,
-    retract(animal(Sum)),
-    asserta(animal(NewSum)).
+    retract(animal(Sum, Name)),
+    asserta(animal(NewSum, Name)).
 
 decreaseanimal(N, Name) :-    
     animal(Sum),
     NewSum is Sum - N,
     retract(animal(Sum)),
-    asserta(animal(NewSum)).
+    asserta(animal(NewSum, Name)).
