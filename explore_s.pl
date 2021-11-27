@@ -2,7 +2,7 @@
 /* Jalan aja */
 s :- 
     game_start(true),
-    /* battle(0), shop(0), atquest(0), */
+    atRanch(0), atMarketplace(0), atQuest(0), atHouse(0), 
     lokasi(player, X, Y),
     YNew is Y+1,
     (\+ lokasi(_, X, YNew)),
@@ -27,6 +27,17 @@ s :-
     nl,
     toMarket.
 
+/* udah di marketplace */
+s :-
+    game_start(true),
+    atMarketplace(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the market right now,          |'),nl,
+    write('|                     can\'t move :c                  |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
+
 /* Masuk ranch */
 s :- 
     game_start(true),
@@ -41,6 +52,16 @@ s :-
     nl,
     toRanch.
 
+/* udah di ranch */
+s :-
+    game_start(true),
+    atRanch(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the ranch right now,           |'),nl,
+    write('|                     can\'t move :c                  |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
 /* Masuk House */
 s :- 
     game_start(true),
@@ -53,6 +74,16 @@ s :-
     retract(atHouse(0)),
     asserta(atHouse(1)), !,
     nl.
+
+/* udah di house */
+s :-
+    game_start(true),
+    atHouse(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the house right now,           |'),nl,
+    write('|                     can\'t move :c                  |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
 
 /* Masuk Quest */
 s :- 
@@ -67,6 +98,16 @@ s :-
     asserta(atQuest(1)), !,
     nl.
 
+/* udah di Quest */
+s :-
+    game_start(true),
+    atQuest(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|         You are at the Quest room right now,       |'),nl,
+    write('|                     can\'t move :c                  |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
 /* Ada air */
 s :- 
     game_start(true),
@@ -74,7 +115,7 @@ s :-
     lokasi(player, X, Y),
     YNew is Y+1,
     lokasi(air, X, YNew),
-    write('You cant get into water.'),!,
+    air,!,
     nl.
 
 /* Digged Tile */

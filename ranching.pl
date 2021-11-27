@@ -49,24 +49,39 @@ decreaseanimal(N, Name) :-
     asserta(animal(NewSum, Name)).
 
 cow :-
+    atRanch(1),
     animal(Sum, cow),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
         write('|       Eh.... you have no cow you know ?        |'),nl,
         write('|------------------------------------------------|'),nl
     ),!
-    . 
+    .
+
+cow :-
+    write('|------------------------------------------------|'),nl,
+    write('|     You are not in the ranch right now T^T     |'),nl,
+    write('|------------------------------------------------|'),nl,!
+    .
 
 sheep :-
+    atRanch(1),
     animal(Sum, sheep),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
-        write('|       Eh.... you have no sheep you know ?        |'),nl,
+        write('|       Eh.... you have no sheep you know ?      |'),nl,
         write('|------------------------------------------------|'),nl
     ),!
     . 
 
+sheep :-
+    write('|------------------------------------------------|'),nl,
+    write('|     You are not in the ranch right now T^T     |'),nl,
+    write('|------------------------------------------------|'),nl,!
+    .
+
 chicken :-
+    atRanch(1),
     animal(Sum, chicken),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
@@ -74,3 +89,8 @@ chicken :-
         write('|------------------------------------------------|'),nl
     ),!
     . 
+chicken :-
+    write('|------------------------------------------------|'),nl,
+    write('|     You are not in the ranch right now T^T     |'),nl,
+    write('|------------------------------------------------|'),nl,!
+    .

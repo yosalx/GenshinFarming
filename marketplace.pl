@@ -13,7 +13,7 @@ toMarket :-     write('|--------------------------------------------------|'),nl
                 read(Choice),nl,
 
                 (Choice = back ->
-                    write('Okay, make sure to come back later !')
+                    exit
                     ;
                 Choice = buy ->
                     write('|--------------------------------------------|'),nl,
@@ -64,4 +64,26 @@ toMarket :-     write('|--------------------------------------------------|'),nl
                     
                 ).
 
+buy :-
+    atMarketplace(1)
+    /* diisi buy */ 
+    .
 
+buy :- 
+    /* ini kalo atMarketplace(0)*/
+    write('|----------------------------------------------------|'),nl,
+    write('|      You are not at the market right now T^T       |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
+sell :-
+    atMarketplace(1)
+    /* diisi sell */ 
+    .
+
+sell :- 
+    /* ini kalo atMarketplace(0)*/
+    write('|----------------------------------------------------|'),nl,
+    write('|      You are not at the market right now T^T       |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
