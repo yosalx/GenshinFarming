@@ -77,7 +77,9 @@ throwItem :-
         write('. How many do you want to throw?'), nl,
         write('> '),
         read(Count), nl,
-        (Sum > Count ->
+        ( Count < 1 ->
+            write('Input salah. Cancelling...')
+        ; Sum > Count ->
             NewSum is Sum - Count,
             delete(Items, [Choice, Sum], TempItems),
             append(TempItems, [[Choice, NewSum]], NewItems),
