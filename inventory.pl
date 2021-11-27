@@ -10,7 +10,8 @@ inventory :-
     Sum > 0,
     write('Your inventory ('), write(Sum), write(' / 100)'), nl, nl,
     showEquipments,
-    showItems.
+    itemList(Items),
+    showItems(Items).
 
 :- dynamic(totalInventory/1).
 totalInventory(10).
