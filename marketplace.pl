@@ -26,8 +26,8 @@ toMarket :-     write('|--------------------------------------------------|'),nl
                     write('|         5. Chicken (500 golds)             |'),nl,
                     write('|         6. Sheep (1000 golds)              |'),nl,
                     write('|         7. Cow (1500 golds)                |'),nl,
-                    write('|         8. Level 1 Shovel                  |'),nl,
-                    write('|         9. Level 1 Fishing rod             |'),nl,
+                    write('|         8. Up 1 Level for Shovel           |'),nl,
+                    write('|         9. Up 1 level for Fishing Rod      |'),nl,
                     write('|--------------------------------------------|'),nl,
 
                     read_integer(Pick),nl,
