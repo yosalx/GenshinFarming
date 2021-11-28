@@ -12,7 +12,8 @@ init_game :-
     [ranching],
     [marketplace],
     [inventory],
-    [farming].
+    [farming],
+    [fishing].
 
 sdebug :-
     init_game.
