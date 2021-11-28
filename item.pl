@@ -58,10 +58,10 @@ useItem(Item, Sum) :-
             assertz(itemList(NewItems)),
             delInventory(Sum)
         ;
-            write('Not Enough '), write(Item)
+            write('Not Enough '), write(Item), fail
         )
     ;
-        write('You do not have '), write(Item), write(' in your inventory')
+        write('You do not have '), write(Item), write(' in your inventory'), fail
     ).
 
 throwItem :-
@@ -106,7 +106,6 @@ throwItem :-
 :- dynamic(equipment/3).
 equipment('Shovel', 1, 0).
 equipment('Fishing Rod', 1, 0).
-equipment('Ranching Kit', 1, 0).
 
 showEquipments :-
     forall((equipment(Name, Lvl, Used)), (listEquipments(Name, Lvl, Used)))
