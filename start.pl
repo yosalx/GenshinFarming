@@ -18,6 +18,7 @@ init_game :-
     [farming],
     [fishing],
     [map_peri_tidur],
+    [house],
     include_map_peri_tidur.
 
 sdebug :-
