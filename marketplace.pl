@@ -6,9 +6,6 @@
 :- dynamic(potion/1).
 potion(2).
 
-:- dynamic(money/1).
-money(3000).
-
 toMarket :-     
             write('             /  \\       __________________________/  \\____'),nl,
             write('            / ^^ \\     /=========================/ ^^ \\===|'),nl,
@@ -74,7 +71,7 @@ buy :-
     write('| 11. Psssttttt......                        |'),nl,
     write('|--------------------------------------------|'),nl,
 
-    money(Money),
+    gold(Money),
     read_integer(Pick),nl,
     (Pick = 1 ->
         write('|--------------------------------------------|'),nl,
@@ -207,7 +204,28 @@ buy :-
         write('|--------------------------------------------|'),nl,nl
         )
         ;
-    Pick = 9 -> write('Not implemented yet');
+    Pick = 9 ->
+        ( Money >= 500 ->
+        equipment('Shovel', A, _),
+        (A is 1 ->
+            retract(equipment('Shovel', A, _)),
+            assertz(equipment('Shovel', 2, _)),
+            updateMoney_buy(500),
+            write('|--------------------------------------------|'),nl,
+            write('|       There you go, work hard okay !       |'),nl,
+            write('|--------------------------------------------|'),nl,nl
+        ;
+        A is 2 ->
+        write('|--------------------------------------------|'),nl,
+        write('|         Well, a hardworker aint ya         |'),nl,
+        write('|    But sorry thats the best you can have   |'),nl,
+        write('|--------------------------------------------|'),nl,nl
+        )
+        ;
+        write('|--------------------------------------------|'),nl,
+        write('|        Hmmm , not enough money : (         |'),nl,
+        write('|--------------------------------------------|'),nl,nl
+        );
     Pick = 10 ->
         ( Money >= 500 ->
         equipment('Fishing Rod', A, _),
@@ -274,7 +292,7 @@ buy :-
             NewSum is X - 1,
             retract(potion(X)),
             assertz(potion(NewSum)),
-            addItem('secret potion',1),
+            addItem('Secret potion',1),
             updateMoney_buy(1000)
             ;
             write('|--------------------------------------------------|'),nl,
@@ -301,17 +319,98 @@ buy :-
     .
 
 sell :-
-    atMarketplace(1),
+    /*atMarketplace(1),*/
     write('|----------------------------------------------------|'),nl,
     write('|          Oh you want to sell me something ?        |'),nl,
     write('|              What dou you have here ?              |'),nl,
     write('|----------------------------------------------------|'),nl,
     showItems,nl,
-    showEquipments,nl,
     write('|----------------------------------------------------|'),nl,
     write('|              Wow, as expected of you !             |'),nl,
     write('|            Now what do you want to sell ?          |'),nl,
-    write('|----------------------------------------------------|'),nl
+    write('|----------------------------------------------------|'),nl,
+    read(Sell_choice),
+    (Sell_choice = woll-> 
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Woll',Sellamount ),
+        updateMoney_sell(150)
+    ;
+    Sell_choice = milk-> 
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Milk',Sellamount ),
+        updateMoney_sell(200)
+    ;
+    Sell_choice = egg -> 
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Egg',Sellamount),
+    updateMoney_sell(100)
+    ;
+    Sell_choice = -> tuna
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Tuna',Sellamount),
+    updateMoney_sell(250)
+    ;
+    Sell_choice = -> salmon
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Salmon',Sellamount),
+    updateMoney_sell(230)
+    ;
+    Sell_choice = -> gurame
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Gurame',Sellamount),
+    updateMoney_sell(210)
+    ;
+    Sell_choice = -> tongkol
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Tongkol',Sellamount),
+    updateMoney_sell(200)
+    ;
+    Sell_choice = -> lele
+    write('|--------------------------------------------|'),nl,
+    write('|       How many do you want to sell ?       |'),nl,
+    write('|--------------------------------------------|'),nl,
+
+    read_integer(Sellamount),
+    useItem('Lele',Sellamount),
+    updateMoney_sell(150)
+    ;
+    Sell_choice = -> wortel;
+    Sell_choice = -> tomat;
+    Sell_choice = -> kentang;
+    Sell_choice = -> jagung;
+    Sell_choice = -> stroberi;
+    write('|--------------------------------------------|'),nl,
+    write('|          There\'s no such item...          |'),nl,
+    write('|--------------------------------------------|'),nl,
+    )
     .
 
 sell :- 
@@ -322,11 +421,16 @@ sell :-
     .
 
 updateMoney_buy(N):-
-    money(X),
+    gold(X),
     NewSum is X-N,
-    retract(money(X)),
-    assertz(money(NewSum))
-    .
+    retract(gold(X)),
+    assertz(gold(NewSum)).
+
+updateMoney_sell(N):-
+    gold(X),
+    NewSum is X+N,
+    retract(gold(X)),
+    assertz(gold(NewSum)).
 
 writeMoney:-
     money(X),
