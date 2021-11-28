@@ -198,9 +198,9 @@ tomat_time(5).
 kentang_time(4).
 jagung_time(10).
 stroberi_time(8).
-
+/*
 gachaharvest(1, 1, Crop) :-
-    addItem(Crop, 1).
+    addItem('Wortel', 1).
 
 gachaharvest(1, 2, Crop) :-
     random(1, 11, Hasil1),
@@ -236,37 +236,66 @@ gachaharvest(2, 3, Crop) :-
         (Hasil5>3, Hasil5<11) -> addItem(Crop, 1)
     )
     .
+*/
+
+addExpFarming :-
+    class(X),
+    (X = farmer -> 
+        tambahExpFarm(80),
+        tambahExp(80)
+        write('You gained 80 exp.'), nl;
+        tambahExpFish(50),
+        tambahExp(50)
+        write('You gained 50 exp.'), nl
+    ).
+
 
 harvest :-
-    lokasi(player, X, Y),
-    write('tes anjeng'), nl,
+    /*
     lvlFarm(LevelFarm),
-    write('tes anjeng 2'), nl,
     equipment('Shovel', LevelShovel, _),
-    write('tes anjeng 3'), nl,
+    */
+    lokasi(player, X, Y),
     lokasi_farm(Crop, X, Y, Umur),
-    write('tes anjeng 4'), nl,
     (   (Crop = wortel, wortel_time(Time), Time =< Umur) ->
             retract(lokasi_farm(_,X,Y,_)),
-            write('tes anjeng 5'), nl,
+            addExpFarming,
+            addItem('Wortel', 1)
+            /*
             gachaharvest(LevelFarm, LevelShovel, 'Wortel'),
-            write('tes anjeng 6'), nl
+            */
             ;
         (Crop = tomat, tomat_time(Time), Time =< Umur) ->
             retract(lokasi_farm(_,X,Y,_)),
+            addExpFarming,
+            addItem('Tomat', 1)
+            /*
             gachaharvest(LevelFarm, LevelShovel, 'Tomat')
+            */
             ;
         (Crop = kentang, kentang_time(Time), Time =< Umur) ->
             retract(lokasi_farm(_,X,Y,_)),
+            addExpFarming,
+            addItem('Kentang', 1)
+            /*
             gachaharvest(LevelFarm, LevelShovel, 'Kentang')
+            */
             ;
         (Crop = jagung, jagung_time(Time), Time =< Umur) ->
             retract(lokasi_farm(_,X,Y,_)),
+            addExpFarming,
+            addItem('Jagung', 1)
+            /*
             gachaharvest(LevelFarm, LevelShovel, 'Jagung')
+            */
             ;
         (Crop = stroberi, stroberi_time(Time), Time =< Umur) ->
             retract(lokasi_farm(_,X,Y,_)),
+            addExpFarming,
+            addItem('Stroberi', 1)
+            /*
             gachaharvest(LevelFarm, LevelShovel, 'Stroberi')
+            */
             ;
         write('Sorry, you can\'t harvest your crop right now :(('), nl
     ).
