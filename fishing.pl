@@ -97,6 +97,9 @@ gacha(LevelFishing, LevelFishingRod) :-
 
 subgacha(1, 1) :-
     random(1, 101, R11),
+    (R11 = 1 -> printHasil(Tuna); (R11>1, R11<7) -> printHasil(Salmon); (R11 > 6, R11<21) -> printHasil(Gurame); (R11>20, R11<41) -> printHasil(Tongkol); (R11>40, R11<71) -> printHasil(Lele); (R11>70, R11<101) -> printHasil(Garbage)).
+
+/*
     subsubgacha1(R11, Hasil11).
     printHasil(Hasil11).
 
@@ -126,6 +129,7 @@ subgacha(3, 2) :-
     printHasil(Hasil32).
 
 /* hasil gacha buat level 1 exp fishing dengan fishing rod level 1 */ 
+/*
 subsubgacha1(R, Hasil) :-
     R is 1, 
     Hasil is Tuna,!.
@@ -146,6 +150,7 @@ subsubgacha1(R, Hasil) :-
     Hasil is Garbage,!.
 
 /* hasil gacha buat level 2 exp fishing dengan fishing rod level 1 */
+/*
 subsubgacha2(R, Hasil) :-
     R > 0, R < 6,
     Hasil is Tuna,!.
@@ -166,6 +171,7 @@ subsubgacha2(R, Hasil) :-
     Hasil is Garbage,!.
 
 /* hasil gacha buat level 3 exp fishing dengan fishing rod level 1 */
+/*
 subsubgacha3(R, Hasil) :-
     R>0, R<11, 
     Hasil is Tuna,!.
@@ -186,6 +192,7 @@ subsubgacha3(R, Hasil) :-
     Hasil is Garbage,!.
 
 /* hasil gacha buat level 1 exp fishing dengan fishing rod level 2 */
+/*
 subsubgacha4(R, Hasil) :-
     R>1, R<3, 
     Hasil is Tuna,!.
@@ -206,6 +213,7 @@ subsubgacha4(R, Hasil) :-
     Hasil is Garbage, !.
 
 /* hasil gacha buat level 2 exp fishing dengan fishing rod level 2 */
+/*
 subsubgacha5(R, Hasil) :-
     R>0, R<8,
     Hasil is Tuna,!.
@@ -226,6 +234,7 @@ subsubgacha5(R, Hasil) :-
     Hasil is Garbage, !.
 
 /* hasil gacha buat level 3 exp fishing dengan fishing rod level 2 */
+/*
 subsubgacha6(R, Hasil) :-
     R>0, R<13,
     Hasil is Tuna, !.
@@ -243,7 +252,7 @@ subsubgacha6(R, Hasil) :-
     Hasil is Lele, !.
 subsubgacha6(R, Hasil) :-
     R>95, R<101, 
-    Hasil is Garbage, !.
+    Hasil is Garbage, !. */
 
 printHasil(Hasil) :-
     Hasil is Tuna,
