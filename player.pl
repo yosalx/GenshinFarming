@@ -1,7 +1,4 @@
-
-
-naik(0).
-naik(A):- naikLvl, A1 is A-1, naik(A1),!.
+:-include('start.pl').
 
 explvl(100).
 explvlfarm(50).
@@ -65,7 +62,6 @@ tambahExpRanch(ExpRn1) :-
 :-dynamic(expFarm/1).
 :-dynamic(expFish/1).
 :-dynamic(expRanch/1).
-:-dynamic(class/1).
 
 exp(0).
 gold(0).
@@ -76,31 +72,26 @@ lvlRanch(0).
 expFish(0).
 expRanch(0).
 expFarm(0).
-class(farmer).
 
 naikLvl :- 
-class(A),
 lvl(Lv),
 Lvl is Lv+1,
 retract(lvl(Lv)),
 asserta(lvl(Lvl)),!.
 
 naikLvlFr:-
-    class(A),
     lvlFarm(LvFr),
     LvlFr is LvFr+1,
     retract(lvlFarm(LvFr)),
     asserta(lvlFarm(LvlFr)),!.
 
 naikLvlFs:-
-    class(A),
     lvlFish(LvFs),
     LvlFs is LvFs+1,
     retract(lvlFish(LvFs)),
     asserta(lvlFish(LvlFs)),!.
 
 naikLvlRn:-
-    class(A),
     lvlRanch(LvRn),
     LvlRn is LvRn+1,
     retract(lvlRanch(LvRn)),
@@ -110,12 +101,12 @@ naikLvlRn:-
 
 
 /* bikin karakter */
-createChara(A) :- retract(lvl(_)),asserta(lvl(0)), retract(class(_)), asserta(class(A)), assignStarter(A), naikLvl,!.
+createChara(A) :- retract(lvl(_)),asserta(lvl(0)), retract(class(_)), asserta(class(A)), naikLvl,!.
 
 /* print stat */
 status :- 
     write('Your status: '),nl,
-    lvlFarm(LvlFr),expFarm(ExpFr), expFish(ExpFs), expRanch(ExpRn) , def(Def), lvlFish(LvlFs), lvlRanch(LvlRn), 
+    lvlFarm(LvlFr),expFarm(ExpFr), expFish(ExpFs), expRanch(ExpRn) , lvlFish(LvlFs), lvlRanch(LvlRn), 
     lvl(Lvl), class(A),
     exp(Exp) , gold(Gold), explvl(Explvl), Expmax is Explvl*Lvl,
     write('Job: '), write(A), write('\n'),
