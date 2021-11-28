@@ -21,10 +21,21 @@ toRanch :-  write(''),nl,
 . 
 
 
-:- dynamic(animal/2).
+
+:- dynamic(animal/2). /*animal(Sum,Name)*/
 animal(0, cow).
 animal(0, sheep).
 animal(1, chicken).
+:- dynamic(product/3). /*product(Name,Time_Required)*/
+product(milk, 5).
+product(wool, 3).
+product(egg, 2).
+
+:- dynamic(day/1).
+day(5).
+
+:- dynamic(ranching/1).
+ranching(1).
 
 showanimal :-
 forall((animal(Sum, Name)), (listanimal(Sum, Name)))
@@ -50,13 +61,28 @@ decreaseanimal(N, Name) :-
     retract(animal(Sum)),
     asserta(animal(NewSum, Name)).
 
+
 cow :-
-    atRanch(1),
+    /*atRanch(1),*/
     animal(Sum, cow),
+    ranching(Level),
+    day(X), /*dummy for day, x is the number of day passed*/
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
         write('|       Eh.... you have no cow you know ?        |'),nl,
         write('|------------------------------------------------|'),nl
+        ;
+    Sum > 0 ->
+        product(milk, 5),
+        (0 is X mod 5 ->
+            Count is (Sum * Level),
+            addItem('milk',Count),
+            write('lol')
+        ;
+        write('|------------------------------------------------|'),nl,
+        write('|             Give your cow a rest !             |'),nl,
+        write('|------------------------------------------------|'),nl
+        )
     ),!
     .
 
@@ -67,12 +93,26 @@ cow :-
     .
 
 sheep :-
-    atRanch(1),
+    /*atRanch(1),*/
     animal(Sum, sheep),
+    ranching(Level),
+    day(X),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
         write('|       Eh.... you have no sheep you know ?      |'),nl,
         write('|------------------------------------------------|'),nl
+        ;
+    Sum > 0 ->
+        product(wool, 3),
+        (0 is X mod 3 ->
+            Count is (Sum * Level),
+            addItem('wool',Count),
+            write('lol')
+        ;
+        write('|------------------------------------------------|'),nl,
+        write('|           Give your sheep a rest !             |'),nl,
+        write('|------------------------------------------------|'),nl
+        )
     ),!
     . 
 
@@ -89,6 +129,18 @@ chicken :-
         write('|------------------------------------------------|'),nl,
         write('|       Eh.... you have no chicken you know ?    |'),nl,
         write('|------------------------------------------------|'),nl
+        ;
+    Sum > 0 ->
+        product(egg, 2),
+        (0 is X mod 2 ->
+            Count is (Sum * Level),
+            addItem('egg',Count),
+            write('lol')
+        ;
+        write('|------------------------------------------------|'),nl,
+        write('|           Give your chicken a rest !           |'),nl,
+        write('|------------------------------------------------|'),nl
+        )
     ),!
     . 
 chicken :-
