@@ -11,7 +11,8 @@ init_game :-
     include_explore,
     [ranching],
     [marketplace],
-    [inventory].
+    [inventory],
+    [farming].
 
 sdebug :-
     init_game.
