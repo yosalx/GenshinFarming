@@ -1,9 +1,3 @@
-wortel_time(5).
-tomat_time(5).
-jagung_time(5).
-stroberi_time(5).
-kentang_time(5).
-
 load_peta :-
     asserta(lokasi(player,8,7)),
     asserta(lokasi(quest,7,3)),
