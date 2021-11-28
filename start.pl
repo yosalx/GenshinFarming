@@ -50,7 +50,12 @@ pilihClass :-
     read(X),
     pickClass(X),!,
     createChara(X)
-    .
+    .pilihClass
+
+pickClass(farmer) :- !.
+pickClass(rancher) :- !.
+pickClass(fisherman) :- !. 
+
 
 quit:-
     write('Apakah Anda yakin untuk keluar dari permainan? (y/n)'),
