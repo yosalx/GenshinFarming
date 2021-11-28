@@ -104,9 +104,9 @@ throwItem :-
 /* equipment(nama, level, terpakai atau tidak) */
 /* 1 untuk terpakai, 0 untuk tidak */
 :- dynamic(equipment/3).
-equipment('shovel', 1, 0).
-equipment('fishing Rod', 1, 1).
-equipment('ranching Kit', 1, 0).
+equipment('Shovel', 1, 0).
+equipment('Fishing Rod', 1, 0).
+equipment('Ranching Kit', 1, 0).
 
 showEquipments :-
     forall((equipment(Name, Lvl, Used)), (listEquipments(Name, Lvl, Used)))
@@ -121,14 +121,30 @@ listEquipments(Name, Lvl, Used) :-
     ).
 
 useEq(Name) :-
-    equipment(Name, _, Used),
-    retract(equipment(Name, _, Used)),
-    assertz(equipment(Name, _, 1)), 
+    equipment(Name, Lvl, Used),
+    retract(equipment(Name, Lvl, Used)),
+    assertz(equipment(Name, Lvl, 1)), 
     delInventory(1).
 
 unequipEq(Name) :-
-    equipment(Name, _, Used),
-    retract(equipment(Name, _, Used)),
-    assertz(equipment(Name, _, 0)), 
+    equipment(Name, Lvl, Used),
+    retract(equipment(Name, Lvl, Used)),
+    assertz(equipment(Name, Lvl, 0)), 
     addInventory(1).
+
+equip :-
+    write('What do you want to use?'),nl,
+    showEquipments,
+    read(Choice),
+    equipment(Choice, Lvl, Used),
+    (Used = 1 ->
+        write('Equipment is already used'),
+        fail
+        ;
+    Used = 0 ->
+        useEq(Choice),
+        write(Choice), write(' is used.'),
+        (\+ equipment(Choice, _, _)), equipment(Name, Lvl, 1),
+        unequipEq(Name)
+    ).
 
