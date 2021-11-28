@@ -1,4 +1,6 @@
 :- include('item.pl').
+:- include('player.pl').
+:- include('start.pl').
 
 fish :-
     equipment('Fishing Rod', _, 0), !,
@@ -7,6 +9,16 @@ fish :-
     write('|----------------------------------------------------|'),nl
     .
 
+addExpFishing :-
+    class(X),
+    (X = fisherman -> 
+        tambahExpFish(15),
+        tambahExp(15)
+        write('You gained 15 exp.'), nl;
+        tambahExpFish(10),
+        tambahExp(10)
+        write('You gained 10 exp.'), nl
+    ).
 
 fish :- 
     equipment('Fishing Rod', A, 1),
@@ -14,7 +26,8 @@ fish :-
     atRanch(0), atMarketplace(0), atQuest(0), atHouse(0),
     W is Y-1,
     lokasi(air, X, W), !,
-    gacha(1, A).
+    gacha(1, A),
+    addExpFishing.
 
 fish :- 
     equipment('Fishing Rod', A, 1),
@@ -22,7 +35,8 @@ fish :-
     atRanch(0), atMarketplace(0), atQuest(0), atHouse(0),
     A is X-1,
     lokasi(air, A, Y), !,
-    gacha(1, A).
+    gacha(1, A),
+    addExpFishing.
 
 fish :- 
     equipment('Fishing Rod', A, 1),
@@ -30,7 +44,8 @@ fish :-
     atRanch(0), atMarketplace(0), atQuest(0), atHouse(0),
     S is Y+1,
     lokasi(air, X, S), !,
-    gacha(1, A).
+    gacha(1, A),
+    addExpFishing.
 
 fish :- 
     equipment('Fishing Rod', A, 1),
@@ -38,7 +53,8 @@ fish :-
     atRanch(0), atMarketplace(0), atQuest(0), atHouse(0),
     D is X+1,
     lokasi(air, D, Y), !,
-    gacha(1, A).
+    gacha(1, A),
+    addExpFishing.
 
 
 fish :-
