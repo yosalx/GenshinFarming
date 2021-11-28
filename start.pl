@@ -8,9 +8,14 @@ init_game :-
     [map],
     include_map,
     [explore],
-    include_explore.
+    include_explore,
+    [ranching],
+    [marketplace],
+    [inventory],
+    [farming],
+    [fishing].
 
-start_debug :-
+sdebug :-
     init_game.
 
 start :-

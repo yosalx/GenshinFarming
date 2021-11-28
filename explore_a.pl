@@ -1,7 +1,7 @@
 /* Jalan aja */
 a :- 
     game_start(true),
-    /* battle(0), shop(0), atquest(0), */
+    atRanch(0), atMarketplace(0), atQuest(0), atHouse(0), 
     lokasi(player, X, Y),
     XNew is X-1,
     (\+ lokasi(_, XNew, Y)),
@@ -23,7 +23,18 @@ a :-
     nl,
     retract(atMarketplace(0)),
     asserta(atMarketplace(1)), !,
-    nl.
+    nl,
+    toMarket.
+
+/* udah di marketplace */
+a :-
+    game_start(true),
+    atMarketplace(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the market right now,          |'),nl,
+    write('|                    can\'t move :c                   |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
 
 /* Masuk ranch */
 a :- 
@@ -36,7 +47,18 @@ a :-
     nl,
     retract(atRanch(0)),
     asserta(atRanch(1)), !,
-    nl.
+    nl,
+    toRanch.
+
+/* udah di ranch */
+a :-
+    game_start(true),
+    atRanch(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the ranch right now,           |'),nl,
+    write('|                    can\'t move :c                   |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
 
 /* Masuk House */
 a :- 
@@ -64,6 +86,16 @@ a :-
     asserta(atQuest(1)), !,
     nl.
 
+/* udah di Quest */
+a :-
+    game_start(true),
+    atQuest(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|         You are at the Quest room right now,       |'),nl,
+    write('|                    can\'t move :c                   |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
 /* Ada Air */
 a :- 
     game_start(true),
@@ -71,7 +103,7 @@ a :-
     lokasi(player, X, Y),
     XNew is X-1,
     lokasi(air, XNew, Y),
-    write('You cant get into water.'),!,
+    air,!,
     nl.
 
 /* digged Tile */
