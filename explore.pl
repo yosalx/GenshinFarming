@@ -49,3 +49,8 @@ exit:-
     write('|     Umm... you are already outside... (o_o)    |'),nl,
     write('|------------------------------------------------|'),nl
     .
+
+teleport(A,B) :-
+    lokasi(player, X, Y),
+    retract(lokasi(player, X, Y)),
+    asserta(lokasi(player, A, B)).
