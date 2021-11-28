@@ -34,7 +34,7 @@ peritidur :-
     random(1,15,X),
     (X = 13 ->
         write('hi im peri tidur. Where do you want to go?'),nl,
-        draw_map_peri_tidur,
+        map_peri_tidur,
         read(ChoiceX),
         read(ChoiceY),
         lokasi(quest,X,Y),
