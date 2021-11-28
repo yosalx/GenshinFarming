@@ -13,7 +13,9 @@ init_game :-
     [marketplace],
     [inventory],
     [farming],
-    [fishing].
+    [fishing],
+    [map_peri_tidur],
+    include_map_peri_tidur.
 
 sdebug :-
     init_game.
@@ -50,7 +52,12 @@ pilihClass :-
     read(X),
     pickClass(X),!,
     createChara(X)
-    .
+    .pilihClass
+
+pickClass(farmer) :- !.
+pickClass(rancher) :- !.
+pickClass(fisherman) :- !. 
+
 
 quit:-
     write('Apakah Anda yakin untuk keluar dari permainan? (y/n)'),

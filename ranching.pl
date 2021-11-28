@@ -1,3 +1,5 @@
+:- include('inventory.pl').
+
 toRanch :-  write(''),nl,
             write('                           +&-          '),nl,
             write('                         _.-^-._    .--.'),nl,
@@ -32,7 +34,7 @@ product(wool, 3).
 product(egg, 2).
 
 :- dynamic(day/1).
-day(5).
+day(3).
 
 :- dynamic(ranching/1).
 ranching(1).
@@ -53,13 +55,13 @@ addanimal(N, Name) :-
     animal(Sum, Name),
     NewSum is Sum + N,
     retract(animal(Sum, Name)),
-    asserta(animal(NewSum, Name)).
+    asserta(animal(NewSum, Name)),!.
 
-decreaseanimal(N, Name) :-    
+/*decreaseanimal(N, Name) :-    
     animal(Sum),
     NewSum is Sum - N,
     retract(animal(Sum)),
-    asserta(animal(NewSum, Name)).
+    asserta(animal(NewSum, Name)).*/
 
 
 cow :-
@@ -77,7 +79,10 @@ cow :-
         (0 is X mod 5 ->
             Count is (Sum * Level),
             addItem('milk',Count),
-            write('lol')
+            write('Your cow(s) produce '), write(Count), write(' milk(s) !'),nl,
+            write('|--------------------------------------------|'),nl,
+            write('|             Enjoy the milk !               |'),nl,
+            write('|--------------------------------------------|'),nl,nl
         ;
         write('|------------------------------------------------|'),nl,
         write('|             Give your cow a rest !             |'),nl,
@@ -107,7 +112,10 @@ sheep :-
         (0 is X mod 3 ->
             Count is (Sum * Level),
             addItem('wool',Count),
-            write('lol')
+            write('Your sheep(s) produce '), write(Count), write(' wool(s) !'),nl,
+            write('|--------------------------------------------|'),nl,
+            write('|             Here\'s the wool !              |'),nl,
+            write('|--------------------------------------------|'),nl,nl
         ;
         write('|------------------------------------------------|'),nl,
         write('|           Give your sheep a rest !             |'),nl,
@@ -123,8 +131,10 @@ sheep :-
     .
 
 chicken :-
-    atRanch(1),
+    /*atRanch(1),*/
     animal(Sum, chicken),
+    ranching(Level),
+    day(X),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
         write('|       Eh.... you have no chicken you know ?    |'),nl,
@@ -135,7 +145,10 @@ chicken :-
         (0 is X mod 2 ->
             Count is (Sum * Level),
             addItem('egg',Count),
-            write('lol')
+            write('Your chicken(s) produce '), write(Count), write(' egg(s) !'),nl,
+            write('|--------------------------------------------|'),nl,
+            write('|              Enjoy the egg !               |'),nl,
+            write('|--------------------------------------------|'),nl,nl
         ;
         write('|------------------------------------------------|'),nl,
         write('|           Give your chicken a rest !           |'),nl,
