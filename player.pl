@@ -24,34 +24,34 @@ retract(exp(Exp)), asserta(exp(Exp2)), tambahExp(0),!.
 
 tambahExpFarm(ExpFr1) :-
     lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
-    ExpFr+ExpFr1 < LvlFr*Explvl, ExpFr2 is ExpFr+ExpFr1,
+    ExpFr+ExpFr1 < LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1,
     retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)), !.
 
 tambahExpFarm(ExpFr1) :-
     lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
-    ExpFr+ExpFr1 >= LvlFr*Explvl, ExpFr2 is ExpFr+ExpFr1-Lvl*Explvl, naikLvlFr, write('Farming telah naik level!!!\n'),
+    ExpFr+ExpFr1 >= LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1-LvlFr*ExplvlFr, naikLvlFr, write('Farming telah naik level!!!\n'),
     retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)), tambahExpFarm(0),!.
 
 
 tambahExpFish(ExpFs1) :-
     lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
-    ExpFs+ExpFs1 < LvlFs*Explvl, ExpFs2 is ExpFs+ExpFs1,
+    ExpFs+ExpFs1 < LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1,
     retract(expFish(ExpFs)), asserta(expFish(ExpFs2)), !.
 
 tambahExpFish(ExpFs1) :-
     lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
-    ExpFs+ExpFs1 >= LvlFs*Explvl, ExpFs2 is ExpFs+ExpFs1-Lvl*Explvl, naikLvlFs, write('Fishing telah naik level!!!\n'),
+    ExpFs+ExpFs1 >= LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1-LvlFs*ExplvlFs, naikLvlFs, write('Fishing telah naik level!!!\n'),
     retract(expFish(ExpFr)), asserta(expFish(ExpFr2)), tambahExpFish(0),!.
 
 
 tambahExpRanch(ExpRn1) :-
     lvlRanch(LvlRn), explvlranch(ExplvlRn), expRanch(ExpRn),
-    ExpRn+ExpRn1 < LvlRn*Explvl, ExpRn2 is ExpRn+ExpRn1,
+    ExpRn+ExpRn1 < LvlRn*ExplvlRn, ExpRn2 is ExpRn+ExpRn1,
     retract(expRanch(ExpRn)), asserta(expRanch(ExpRn2)), !.
 
 tambahExpRanch(ExpRn1) :-
     lvlRanch(LvlRn), explvlranch(ExplvlRn), expRanch(ExpRn),
-    ExpRn+ExpRn1 >= LvlRn*Explvl, ExpRn2 is ExpRn+ExpRn1-Lvl*Explvl, naikLvlRn, write('Ranching telah naik level!!!\n'),
+    ExpRn+ExpRn1 >= LvlRn*ExplvlRn, ExpRn2 is ExpRn+ExpRn1-LvlRn*ExplvlRn, naikLvlRn, write('Ranching telah naik level!!!\n'),
     retract(expRanch(ExpRn)), asserta(expRanch(ExpRn2)), tambahExpRanch(0),!.
 
 
