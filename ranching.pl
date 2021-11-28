@@ -69,10 +69,10 @@ addExpRanching :-
     class(X),
     (X = fisherman -> 
         tambahExpRanch(20),
-        tambahExp(20)
+        tambahExp(20),
         write('You gained 20 exp !'), nl;
         tambahExpRanch(15),
-        tambahExp(15)
+        tambahExp(15),
         write('You gained 15 exp !'), nl
     ).
 
