@@ -8,9 +8,15 @@ a :-
     XNew > 0, XNew < 18, !,
     retract(lokasi(player, X, Y)),
     asserta(lokasi(player, XNew, Y)),
-    write('Anda bergeser ke kiri.'), !,
-    nl,
-    map.
+    write('|-----------------------|'),nl, !,
+    write('| You moved to the left.|'),nl,
+    write('|-----------------------|'), nl,
+    write('|       .               |'),nl,
+    write('|     .;;............   |'),nl,
+    write('|   .;;;;::::::::::::   |'),nl,
+    write('|    \':;;::::::::::::   |'),nl,
+    write('|      \':               |'),nl,
+    write('|-----------------------|'),nl.
 
 /* Masuk marketplace */
 a :- 
@@ -19,8 +25,6 @@ a :-
     lokasi(player, X, Y),
     XNew is X-1,
     lokasi(market, XNew, Y),
-    write('Anda memasuki marketplace.'),
-    nl,
     retract(atMarketplace(0)),
     asserta(atMarketplace(1)), !,
     nl,
@@ -43,8 +47,6 @@ a :-
     lokasi(player, X, Y),
     XNew is X-1,
     lokasi(ranch, XNew, Y),
-    write('Anda memasuki ranch.'),
-    nl,
     retract(atRanch(0)),
     asserta(atRanch(1)), !,
     nl,
@@ -116,8 +118,9 @@ a :-
     XNew > 0, XNew < 18, !,
     retract(lokasi(player, X, Y)),
     asserta(lokasi(player, XNew, Y)),
-    write('Anda berdiri di atas digged tile.'), !,
-    nl,
+    write('|---------------------------------- |'), nl, !,
+    write('| You are standing on a digged tile |'), nl,
+    write('|-----------------------------------|'), nl,
     map.
 /* else: Nabrak */
 a :-
