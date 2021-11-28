@@ -12,7 +12,7 @@ map :-
 gambar(A,B) :-
     A =:= 0,
     B =< 15,
-    write('#'),
+    write('# '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -21,7 +21,7 @@ gambar(A,B) :-
     A > 0,
     A < 18,
     B =:= 0,
-    write('#'),
+    write('# '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -29,7 +29,7 @@ gambar(A,B) :-
 gambar(A,B) :-
     A =:= 18,
     B =< 15,
-    write('#\n'),
+    write('# \n'),
     A1 is 0,
     B1 is B+1,
     gambar(A1,B1).
@@ -39,7 +39,7 @@ gambar(A,B) :-
     A > 0,
     A < 18,
     B =:= 15,
-    write('#'),
+    write('# '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -51,7 +51,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(player,A,B), !,
-    write('P'),
+    write('P '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -62,7 +62,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(air,A,B), !,
-    write('o'),
+    write('o '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -73,7 +73,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(quest,A,B), !,
-    write('Q'),
+    write('Q '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -84,7 +84,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(house,A,B), !,
-    write('H'),
+    write('H '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -95,7 +95,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(ranch,A,B), !,
-    write('R'),
+    write('R '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -106,7 +106,7 @@ gambar(A,B) :-
     B > 0,
     B < 15,
     lokasi(market,A,B), !,
-    write('M'),
+    write('M '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -118,7 +118,7 @@ gambar(A,B) :-
     B < 15,
     (\+ lokasi_farm(_,A,B,_)),
     (\+ lokasi(_,A,B)),
-    write('-'),
+    write('- '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -130,7 +130,7 @@ gambar(A,B) :-
     B < 15,
     (\+ lokasi(player,A,B)),
     lokasi(digged_tile,A,B), !,
-    write('='),
+    write('= '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -147,7 +147,7 @@ gambar(A,B) :-
     lokasi_farm(wortel,A,B,Age),
     (\+ lokasi(player,A,B)),
     Age < Time, !,
-    write('w'),
+    write('w '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -160,7 +160,7 @@ gambar(A,B) :-
     lokasi_farm(wortel,A,B,Age),
     (\+ lokasi(player,A,B)),
     Time =< Age, !,
-    write('W'),
+    write('W '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -176,7 +176,7 @@ gambar(A,B) :-
     lokasi_farm(tomat,A,B,Age),
     (\+ lokasi(player,A,B)),
     Age < Time, !,
-    write('t'),
+    write('t '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -189,7 +189,7 @@ gambar(A,B) :-
     lokasi_farm(tomat,A,B,Age),
     (\+ lokasi(player,A,B)),
     Time =< Age, !,
-    write('T'),
+    write('T '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -203,7 +203,7 @@ gambar(A,B) :-
     lokasi_farm(kentang,A,B,Age),
     (\+ lokasi(player,A,B)),
     Age < Time, !,
-    write('k'),
+    write('k '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -216,7 +216,7 @@ gambar(A,B) :-
     lokasi_farm(kentang,A,B,Age),
     (\+ lokasi(player,A,B)),
     Time =< Age, !,
-    write('K'),
+    write('K '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -230,7 +230,7 @@ gambar(A,B) :-
     lokasi_farm(stroberi,A,B,Age),
     (\+ lokasi(player,A,B)),
     Age < Time, !,
-    write('s'),
+    write('s '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -243,7 +243,7 @@ gambar(A,B) :-
     lokasi_farm(stroberi,A,B,Age),
     (\+ lokasi(player,A,B)),
     Time =< Age, !,
-    write('S'),
+    write('S '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -257,7 +257,7 @@ gambar(A,B) :-
     lokasi_farm(jagung,A,B,Age),
     (\+ lokasi(player,A,B)),
     Age < Time, !,
-    write('j'),
+    write('j '),
     A1 is A+1,
     gambar(A1,B).
 
@@ -270,7 +270,7 @@ gambar(A,B) :-
     lokasi_farm(jagung,A,B,Age),
     (\+ lokasi(player,A,B)),
     Time =< Age, !,
-    write('J'),
+    write('J '),
     A1 is A+1,
     gambar(A1,B).
 
