@@ -2,6 +2,9 @@
 :- dynamic(day/1).
 :- include('map.pl').
 :- include('peta.pl').
+:- include('map_peri_tidur.pl').
+:- include('farming.pl').
+:- include('start.pl').
 day(364).
 
 house :-
@@ -30,30 +33,40 @@ failState :-
 peritidur :-
     random(1,15,X),
     (X = 13 ->
-        write('hi im peri tidur. Where do you want to go?'),
-        write('1. Ranch'),nl,
-        write('2. Pond'),nl,
-        write('3. Marketplace'),nl,
-        read(Choice),
-        (Choice = 1 ->
-            lokasi(ranch,X,Y),
-            teleport(X,Y),
-            retract(atRanch(0)),
-            assertz(atRanch(1)),
-            write('masuk ranch')
+        write('hi im peri tidur. Where do you want to go?'),nl,
+        draw_map_peri_tidur,
+        read(ChoiceX),
+        read(ChoiceY),
+        lokasi(quest,X,Y),
+        lokasi(air,X1,Y1),
+        lokasi(ranch,X2,Y2),
+        lokasi(market,X3,Y3),
+        (ChoiceX = X ->
+            write('you can\'t go there')
             ;
-        Choice = 2 ->
-            teleport(4,8),
-            write('hahy')
+        ChoiceX = X1 ->
+            write('you can\'t go there')
             ;
-        Choice = 3 ->
-            lokasi(market,X,Y),
-            teleport(X,Y),
-            retract(atMarketplace(0)),
-            assertz(atMarketplace(1)),
-            write('masuk market')
+        ChoiceX = X2 ->
+            write('you can\'t go there')
             ;
-        write('defal')
+        ChoiceX = X3 ->
+            write('you can\'t go there')
+            ;
+        ChoiceY = Y ->
+            write('you can\'t go there')
+            ;
+        ChoiceY = Y1 ->
+            write('you can\'t go there')
+            ;
+        ChoiceY = Y2 ->
+            write('you can\'t go there')
+            ;
+        ChoiceY = Y3 ->
+            write('you can\'t go there')
+            ;
+            teleport(ChoiceX,ChoiceY),
+            write('You are teleported!')
         )
     ;
     write('gagal'),
