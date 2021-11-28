@@ -1,3 +1,6 @@
+:-dynamic(class/1).
+class(none).
+
 :- dynamic(game_start/1).
 
 game_start(false).
@@ -49,15 +52,22 @@ start :-
 pilihClass :-
     repeat,
     write('Welcome to Genhsin Farming. Choose your job\n1. Fisherman\n2. Farmer\n3. Rancher'), nl,
-    read(X),
-    pickClass(X),!,
-    createChara(X)
-    .
-
-pickClass(farmer) :- !.
-pickClass(rancher) :- !.
-pickClass(fisherman) :- !. 
-
+    read_integer(X),
+    (X = 1 -> 
+        retract(class(none)),
+        asserta(class(fisherman)),
+        createChara(fisherman);
+    X = 2 ->
+        retract(class(none)),
+        asserta(class(farmer)),
+        createChara(farmer);
+    X = 3 ->
+        retract(class(none)),
+        asserta(class(rancher)),
+        createChara(rancher);
+    write('There\'s only 3 option you know')
+    )
+    . 
 
 quit:-
     write('Apakah Anda yakin untuk keluar dari permainan? (y/n)'),
@@ -74,17 +84,3 @@ help:-
     write('############################ Navigasi ############################'), nl,
     write('map      : melihat map'),nl,
     write('w,a,s,d  : untuk bergerak, pemain tidak dapat bergerak ke danau'), nl.
-    
-
-inventory:-
-    write('Inventory:'),nl,
-    write(' Saat ini inventory-mu masih kosong.'),nl.
-    
-
-
-
-
- 
- 
-
-

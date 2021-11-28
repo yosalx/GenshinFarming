@@ -1,4 +1,6 @@
 :- include('inventory.pl').
+:- include('player.pl').
+:- include('class.pl').
 
 toRanch :-  write(''),nl,
             write('                           +&-          '),nl,
@@ -63,6 +65,17 @@ addanimal(N, Name) :-
     retract(animal(Sum)),
     asserta(animal(NewSum, Name)).*/
 
+addExpRanching :-
+    class(X),
+    (X = fisherman -> 
+        tambahExpRanch(20),
+        tambahExp(20)
+        write('You gained 20 exp !'), nl;
+        tambahExpRanch(15),
+        tambahExp(15)
+        write('You gained 15 exp !'), nl
+    ).
+
 
 cow :-
     /*atRanch(1),*/
@@ -78,11 +91,12 @@ cow :-
         product(milk, 5),
         (0 is X mod 5 ->
             Count is (Sum * Level),
-            addItem('milk',Count),
+            addItem('Milk',Count),
             write('Your cow(s) produce '), write(Count), write(' milk(s) !'),nl,
             write('|--------------------------------------------|'),nl,
             write('|             Enjoy the milk !               |'),nl,
-            write('|--------------------------------------------|'),nl,nl
+            write('|--------------------------------------------|'),nl,nl,
+            addExpRanching
         ;
         write('|------------------------------------------------|'),nl,
         write('|             Give your cow a rest !             |'),nl,
@@ -111,11 +125,12 @@ sheep :-
         product(wool, 3),
         (0 is X mod 3 ->
             Count is (Sum * Level),
-            addItem('wool',Count),
+            addItem('Wool',Count),
             write('Your sheep(s) produce '), write(Count), write(' wool(s) !'),nl,
             write('|--------------------------------------------|'),nl,
             write('|             Here\'s the wool !              |'),nl,
-            write('|--------------------------------------------|'),nl,nl
+            write('|--------------------------------------------|'),nl,nl,
+            addExpRanching
         ;
         write('|------------------------------------------------|'),nl,
         write('|           Give your sheep a rest !             |'),nl,
@@ -144,11 +159,12 @@ chicken :-
         product(egg, 2),
         (0 is X mod 2 ->
             Count is (Sum * Level),
-            addItem('egg',Count),
+            addItem('Egg',Count),
             write('Your chicken(s) produce '), write(Count), write(' egg(s) !'),nl,
             write('|--------------------------------------------|'),nl,
             write('|              Enjoy the egg !               |'),nl,
-            write('|--------------------------------------------|'),nl,nl
+            write('|--------------------------------------------|'),nl,nl,
+            addExpRanching
         ;
         write('|------------------------------------------------|'),nl,
         write('|           Give your chicken a rest !           |'),nl,
