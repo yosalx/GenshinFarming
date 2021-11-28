@@ -1,6 +1,6 @@
 :- include('inventory.pl').
 :- include('player.pl').
-:- include('class.pl').
+:- include('start.pl').
 
 toRanch :-  write(''),nl,
             write('                           +&-          '),nl,
