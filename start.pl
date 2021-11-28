@@ -52,7 +52,7 @@ pilihClass :-
     read(X),
     pickClass(X),!,
     createChara(X)
-    .pilihClass
+    .
 
 pickClass(farmer) :- !.
 pickClass(rancher) :- !.
