@@ -245,41 +245,41 @@ addExpFarming :-
         tambahExpFarm(80),
         tambahExp(80),
         write('You gained 80 exp.'), nl;
-        tambahExpFish(50),
+        tambahExpFarm(50),
         tambahExp(50),
         write('You gained 50 exp.'), nl
     ).
 
 
 harvest :-
-    lvlFarm(LevelFarm),
-    equipment('Shovel', LevelShovel, _),
     lokasi(player, X, Y),
     lokasi_farm(Crop, X, Y, Umur),
+    lvlFarm(LevelFarm),
+    equipment('Shovel', LevelShovel, _),
     (
-        (LevelShovel = 1, LevelFarm = 1 ->
+        (LevelShovel = 1, LevelFarm = 1) ->
             K is 1
             ;
-        LevelShovel = 1, LevelFarm = 2 ->
+        (LevelShovel = 1, LevelFarm = 2) ->
             random(1, 11, R1),
             (R1 = 1 -> K is 2; K is 1)
             ;
-        LevelShovel = 1, LevelFarm = 3 ->
+        (LevelShovel = 1, LevelFarm = 3) ->
             random(1, 11, R2),
             ((R2>0,R2<3) -> K is 2; K is 1)
             ;
-        LevelShovel = 2, LevelFarm = 1 ->
+        (LevelShovel = 2, LevelFarm = 1) ->
             random(1, 11, R3),
             (R3 = 1 -> K is 2; K is 1)
             ;
-        LevelShovel = 2, LevelFarm = 2 ->
+        (LevelShovel = 2, LevelFarm = 2) ->
             random(1, 11, R4),
             ((R4>0,R4<3) -> K is 2; K is 1)
             ;
-        LevelShovel = 2, LevelFarm = 3) ->
+        (LevelShovel = 2, LevelFarm = 3) ->
             random(1, 11, R5),
             ((R5>0,R5<4) -> K is 2; K is 1)    
-    ),
+    ), write(K), write(' ini tes'), nl,
     (Crop = wortel, wortel_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
