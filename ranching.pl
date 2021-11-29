@@ -1,6 +1,7 @@
 :- include('inventory.pl').
 :- include('player.pl').
 :- include('start.pl').
+:- include('house.pl').
 
 toRanch :-  write(''),nl,
             write('                           +&-          '),nl,
@@ -38,8 +39,6 @@ product(egg, 2).
 :- dynamic(day/1).
 day(3).
 
-:- dynamic(ranching/1).
-ranching(1).
 
 showanimal :-
 forall((animal(Sum, Name)), (listanimal(Sum, Name)))
@@ -80,7 +79,7 @@ addExpRanching :-
 cow :-
     /*atRanch(1),*/
     animal(Sum, cow),
-    ranching(Level),
+    lvlRanch(Level),
     day(X), /*dummy for day, x is the number of day passed*/
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
@@ -114,7 +113,7 @@ cow :-
 sheep :-
     /*atRanch(1),*/
     animal(Sum, sheep),
-    ranching(Level),
+    lvlRanch(Level),
     day(X),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
@@ -148,7 +147,7 @@ sheep :-
 chicken :-
     /*atRanch(1),*/
     animal(Sum, chicken),
-    ranching(Level),
+    lvlRanch(Level),
     day(X),
     ( Sum is 0 ->
         write('|------------------------------------------------|'),nl,
