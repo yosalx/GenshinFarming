@@ -31,14 +31,14 @@ market :-
             write('|--------------------------------------------------|'),nl,
 
             write('|--------------------------------------------------|'),nl,
-            write('|         1. back : I\'ll be back soon !            |'),nl,           
+            write('|         1. exit : I\'ll be back soon !            |'),nl,           
             write('|         2. buy  : I want to buy some stuff !     |'),nl,
             write('|         3. sell : I want to sell some stuff !    |'),nl,
             write('|--------------------------------------------------|'),nl,
 
             read(Choice),nl,
 
-            (Choice = back ->
+            (Choice = exit ->
                 exit
                 ;
             Choice = buy ->
