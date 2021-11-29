@@ -121,6 +121,11 @@ status :-
 /*skema menang, tpi masih bingung ditaroh dimana nanti*/
 winGame:-
     gold(Gold),
-    Gold>=20000,
-    write('Congratulations, you have become rich and won the game !!! '),nl.
+    (Gold>=20000 ->
+    write('Congratulations, you have become rich and paid your debt !!! '),nl,
+    retract(game_start(X)),
+    assertz(game_start(0));
+    write('')
+    ).
+
 

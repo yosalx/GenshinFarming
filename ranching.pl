@@ -78,7 +78,7 @@ addExpRanching :-
 
 
 cow :-
-    /*atRanch(1),*/
+    atRanch(1),
     animal(Sum, cow),
     lvlRanch(Level),
     day(X), /*dummy for day, x is the number of day passed*/
@@ -88,6 +88,7 @@ cow :-
         write('|------------------------------------------------|'),nl
         ;
     Sum > 0 ->
+        useResin,
         product(milk, 5),
         (0 is X mod 5 ->
             Count is (Sum * Level),
@@ -106,13 +107,14 @@ cow :-
     .
 
 cow :-
+    atRanch(0),
     write('|------------------------------------------------|'),nl,
     write('|     You are not in the ranch right now T^T     |'),nl,
     write('|------------------------------------------------|'),nl,!
     .
 
 sheep :-
-    /*atRanch(1),*/
+    atRanch(1),
     animal(Sum, sheep),
     lvlRanch(Level),
     day(X),
@@ -122,6 +124,7 @@ sheep :-
         write('|------------------------------------------------|'),nl
         ;
     Sum > 0 ->
+        useResin,
         product(wool, 3),
         (0 is X mod 3 ->
             Count is (Sum * Level),
@@ -140,13 +143,14 @@ sheep :-
     . 
 
 sheep :-
+    atRanch(0),
     write('|------------------------------------------------|'),nl,
     write('|     You are not in the ranch right now T^T     |'),nl,
     write('|------------------------------------------------|'),nl,!
     .
 
 chicken :-
-    /*atRanch(1),*/
+    atRanch(1),
     animal(Sum, chicken),
     lvlRanch(Level),
     day(X),
@@ -156,6 +160,7 @@ chicken :-
         write('|------------------------------------------------|'),nl
         ;
     Sum > 0 ->
+        useResin,
         product(egg, 2),
         (0 is X mod 2 ->
             Count is (Sum * Level),
@@ -173,6 +178,7 @@ chicken :-
     ),!
     . 
 chicken :-
+    atRanch(0),
     write('|------------------------------------------------|'),nl,
     write('|     You are not in the ranch right now T^T     |'),nl,
     write('|------------------------------------------------|'),nl,!
