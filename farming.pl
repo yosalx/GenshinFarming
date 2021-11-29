@@ -64,7 +64,7 @@ dig :-
 
 /* seed(jumlah, nama_seed) */
 :- dynamic(seed/2).
-seed(10, wortel).
+seed(0, wortel).
 seed(0, tomat).
 seed(0, kentang).
 seed(0, jagung).
