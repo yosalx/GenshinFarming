@@ -97,8 +97,12 @@ failState :-
 peritidur :-
     random(1,15,X),
     (X = 13 ->
-        write('hi im peri tidur. Where do you want to go?'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('| hi im peri tidur. Where do you want to go? |'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('X coordinate ? '),
         read(ChoiceX),
+        write('Y coordinate ? '),
         read(ChoiceY),
         (lokasi(quest,ChoiceX,ChoiceY) ->
             write('you can\'t go there')
@@ -113,10 +117,11 @@ peritidur :-
             write('you can\'t go there')
             ;
             teleport(ChoiceX,ChoiceY),
-            write('You are teleported!')
+            write('You are teleported!'), nl,
+            retract(atHouse(1)), asserta(atHouse(0))
         )
     ;
-    write('gagal'),
+    /*write('gagal'),*/
     write('')
     ).
 
