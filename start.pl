@@ -16,6 +16,7 @@ init_game :-
     [ranching], nl,
     [marketplace], nl,
     [inventory], nl,
+    [item], nl,
     [farming], nl,
     [fishing], nl,
     [house], nl,

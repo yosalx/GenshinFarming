@@ -38,7 +38,7 @@ tambahExpFish(ExpFs1) :-
 tambahExpFish(ExpFs1) :-
     lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
     ExpFs+ExpFs1 >= LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1-LvlFs*ExplvlFs, naikLvlFs, write('Fishing telah naik level!!!\n'),
-    retract(expFish(ExpFr)), asserta(expFish(ExpFr2)), tambahExpFish(0),!.
+    retract(expFish(ExpFr)), asserta(expFish(ExpFr2)),!.
 
 
 tambahExpRanch(ExpRn1) :-
@@ -65,10 +65,10 @@ tambahExpRanch(ExpRn1) :-
 
 exp(0).
 gold(0).
-lvl(0).
-lvlFarm(0).
-lvlFish(0).
-lvlRanch(0).
+lvl(1).
+lvlFarm(1).
+lvlFish(1).
+lvlRanch(1).
 expFish(0).
 expRanch(0).
 expFarm(0).

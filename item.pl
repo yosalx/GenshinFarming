@@ -155,7 +155,7 @@ throwItem :-
 /* 1 untuk terpakai, 0 untuk tidak */
 :- dynamic(equipment/3).
 equipment('Shovel', 1, 0).
-equipment('Fishing Rod', 1, 0).
+equipment('Fishing Rod', 1, 1).
 
 showEquipments :-
     forall((equipment(Name, Lvl, Used)), (listEquipments(Name, Lvl, Used)))
