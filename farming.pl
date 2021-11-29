@@ -255,31 +255,30 @@ harvest :-
     equipment('Shovel', LevelShovel, _),
     lokasi(player, X, Y),
     lokasi_farm(Crop, X, Y, Umur),
-    (   (LevelShovel = 1, LevelFarm = 1) ->
+        (LevelShovel = 1, LevelFarm = 1 ->
             K is 1
             ;
-        (LevelShovel = 1, LevelFarm = 2) ->
+        LevelShovel = 1, LevelFarm = 2 ->
             random(1, 11, R1),
             (R1 = 1 -> K is 2; K is 1)
             ;
-        (LevelShovel = 1, LevelFarm = 3) ->
+        LevelShovel = 1, LevelFarm = 3 ->
             random(1, 11, R2),
             ((R2>0,R2<3) -> K is 2; K is 1)
             ;
-        (LevelShovel = 2, LevelFarm = 1) ->
+        LevelShovel = 2, LevelFarm = 1 ->
             random(1, 11, R3),
             (R3 = 1 -> K is 2; K is 1)
             ;
-        (LevelShovel = 2, LevelFarm = 2) ->
+        LevelShovel = 2, LevelFarm = 2 ->
             random(1, 11, R4),
             ((R4>0,R4<3) -> K is 2; K is 1)
             ;
-        (LevelShovel = 2, LevelFarm = 3) ->
+        LevelShovel = 2, LevelFarm = 3) ->
             random(1, 11, R5),
-            ((R5>0,R5<4) -> K is 2; K is 1)
-            ;    
+            ((R5>0,R5<4) -> K is 2; K is 1)    
     ),
-    (   (Crop = wortel, wortel_time(Time), Time =< Umur) ->
+    (Crop = wortel, wortel_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
             addItem('Wortel', K)
@@ -287,7 +286,7 @@ harvest :-
             gachaharvest(LevelFarm, LevelShovel, 'Wortel'),
             */
             ;
-        (Crop = tomat, tomat_time(Time), Time =< Umur) ->
+        Crop = tomat, tomat_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
             addItem('Tomat', K)
@@ -295,7 +294,7 @@ harvest :-
             gachaharvest(LevelFarm, LevelShovel, 'Tomat')
             */
             ;
-        (Crop = kentang, kentang_time(Time), Time =< Umur) ->
+        Crop = kentang, kentang_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
             addItem('Kentang', K)
@@ -303,7 +302,7 @@ harvest :-
             gachaharvest(LevelFarm, LevelShovel, 'Kentang')
             */
             ;
-        (Crop = jagung, jagung_time(Time), Time =< Umur) ->
+        Crop = jagung, jagung_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
             addItem('Jagung', K)
@@ -311,7 +310,7 @@ harvest :-
             gachaharvest(LevelFarm, LevelShovel, 'Jagung')
             */
             ;
-        (Crop = stroberi, stroberi_time(Time), Time =< Umur) ->
+        Crop = stroberi, stroberi_time(Time), Time =< Umur ->
             retract(lokasi_farm(_,X,Y,_)),
             addExpFarming,
             addItem('Stroberi', K)

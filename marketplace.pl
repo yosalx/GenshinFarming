@@ -349,15 +349,15 @@ sell :-
         updateMoney_sell(200)
     ;
     Sell_choice = egg -> 
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Egg',Sellamount),
-    updateMoney_sell(100)
+        read_integer(Sellamount),
+        useItem('Egg',Sellamount),
+        updateMoney_sell(100)
     ;
-    Sell_choice = -> tuna
+    Sell_choice = tuna ->
     write('|--------------------------------------------|'),nl,
     write('|       How many do you want to sell ?       |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -366,7 +366,7 @@ sell :-
     useItem('Tuna',Sellamount),
     updateMoney_sell(250)
     ;
-    Sell_choice = -> salmon
+    Sell_choice = salmon ->
     write('|--------------------------------------------|'),nl,
     write('|       How many do you want to sell ?       |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -375,7 +375,7 @@ sell :-
     useItem('Salmon',Sellamount),
     updateMoney_sell(230)
     ;
-    Sell_choice = -> gurame
+    Sell_choice = gurame ->
     write('|--------------------------------------------|'),nl,
     write('|       How many do you want to sell ?       |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -384,7 +384,7 @@ sell :-
     useItem('Gurame',Sellamount),
     updateMoney_sell(210)
     ;
-    Sell_choice = -> tongkol
+    Sell_choice = tongkol ->
     write('|--------------------------------------------|'),nl,
     write('|       How many do you want to sell ?       |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -393,7 +393,7 @@ sell :-
     useItem('Tongkol',Sellamount),
     updateMoney_sell(200)
     ;
-    Sell_choice = -> lele
+    Sell_choice = lele ->
     write('|--------------------------------------------|'),nl,
     write('|       How many do you want to sell ?       |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -402,14 +402,14 @@ sell :-
     useItem('Lele',Sellamount),
     updateMoney_sell(150)
     ;
-    Sell_choice = -> wortel;
-    Sell_choice = -> tomat;
-    Sell_choice = -> kentang;
-    Sell_choice = -> jagung;
-    Sell_choice = -> stroberi;
+    Sell_choice = wortel ->write('');
+    Sell_choice = tomat ->write('');
+    Sell_choice = kentang ->write('');
+    Sell_choice = jagung ->write('');
+    Sell_choice = stroberi ->write('');
     write('|--------------------------------------------|'),nl,
     write('|          There\'s no such item...          |'),nl,
-    write('|--------------------------------------------|'),nl,
+    write('|--------------------------------------------|'),nl
     )
     .
 
