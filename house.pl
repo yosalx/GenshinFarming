@@ -7,6 +7,20 @@
 */
 :- dynamic(day/1).
 day(364).
+:- dynamic(resin/1).
+resin(5).
+useResin :-
+    resin(Sum),
+    (Sum > 0 ->
+        retract(resin(Sum)),
+        New is Sum-1,
+        assertz(resin(New)),
+        write('')
+        ;
+    Sum = 0 ->
+        write('Resin tidak cukup, anda harus segera tidur!'),
+        fail
+    ).
 
 house :-
     write('        )'),nl,
