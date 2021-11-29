@@ -124,6 +124,7 @@ peritidur :-
 listDiary([]).
 
 writeDiary :-
+    atHouse(1),
     listDiary(List),
     write('write your diary here'),nl,
     read(Input),
@@ -142,6 +143,7 @@ showDiaryEntry([[Day, _]|T]) :-
 
 
 readDiary :-
+    atHouse(1),
     listDiary(List),
     showDiaryEntry(List),
     write('select day'),nl,
