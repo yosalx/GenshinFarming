@@ -29,9 +29,9 @@ onQuest(0).
 :- dynamic(playerQuest/3).
 playerQuest(0,0,0). 
 /*quest : posisi player sedang di quest atau tidak */
-:- dynamic(atquest/1).
+:- dynamic(atQuest/1).
 :- dynamic(questNow/1).
-atquest(0).
+atQuest(0).
 questNow(0).
 :- dynamic(questisDone/1).
 questisDone(0).
@@ -42,7 +42,7 @@ questisDone(0).
 newQuest(A) :- 
     game_start(true),
     onQuest(0), 
-    atquest(1),
+    atQuest(1),
     quest(A, B, C, D, _),
     questisDone(G),
     G+1 >= A,
@@ -55,7 +55,7 @@ newQuest(_) :-
     write('Game has not been started yet!'),
     nl.
 newQuest(_) :-
-    atquest(0), !,
+    atQuest(0), !,
     write('You are not in a quest.'),
     nl,
     write('Type \'help\' to show usable.'),
@@ -71,7 +71,7 @@ mengeset onQuest kembali nol
 syarat : playerQuest harus sudah habis dan nomor quest tidak nol
 reward diambil --> level up sama gold up*/
 questDone :- 
-    atquest(1),
+    atQuest(1),
     playerQuest(0,0,0),
     retract(onQuest(_)),
     asserta(onQuest(0)),
@@ -118,7 +118,7 @@ questProgress(egg) :-
     asserta(playerQuest(A,B,H)),!.
 questProgress(_).
 questList :-
-    atquest(1),
+    atQuest(1),
     quest(A,B,C,D,E),
     reward(A,F,G),
     write(A), write('. '), 
