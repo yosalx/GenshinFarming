@@ -13,10 +13,10 @@ addExpFishing :-
     class(X),
     (X = fisherman -> 
         tambahExpFish(15),
-        tambahExp(15)
+        tambahExp(15),
         write('You gained 15 exp.'), nl;
         tambahExpFish(10),
-        tambahExp(10)
+        tambahExp(10),
         write('You gained 10 exp.'), nl
     ).
 
