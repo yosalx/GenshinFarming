@@ -38,10 +38,16 @@ exit:-
 
 exit:-
     atQuest(1),
+    write('|------------------------------------------------|'),nl,
+    write('|       Good luck ! come back if you are done    |'),nl,
+    write('|------------------------------------------------|'),nl,
     retract(atQuest(1)), asserta(atQuest(0)),!.
 
 exit:-
     atHouse(1),
+    write('|------------------------------------------------|'),nl,
+    write('|            Let\'s get to work \\( ﾟヮﾟ)9         |'),nl,
+    write('|------------------------------------------------|'),nl,
     retract(atHouse(1)), asserta(atHouse(0)),!.
 
 exit:-
