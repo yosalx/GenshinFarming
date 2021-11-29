@@ -54,7 +54,7 @@ market :-
             ).
 
 buy :-
-    /*atMarketplace(1),*/
+    atMarketplace(1),
     write('|--------------------------------------------|'),nl,
     write('|          What do you want to buy ?         |'),nl,
     write('|--------------------------------------------|'),nl,
@@ -288,6 +288,9 @@ buy :-
             ( X > 0 -> 
             write('|----------------------------------------------------|'),nl,
             write('|      What a good choiceeee, this potion is rare    |'),nl,
+            write('|              p.s. if you want tou use it           |'),nl,
+            write('|             say the magic word okay ;)             |'),nl,
+            write('|                    (usePotion.)                    |'),nl,
             write('|----------------------------------------------------|'),nl,
             NewSum is X - 1,
             retract(potion(X)),
@@ -319,7 +322,7 @@ buy :-
     .
 
 sell :-
-    /*atMarketplace(1),*/
+    atMarketplace(1),
     write('|----------------------------------------------------|'),nl,
     write('|          Oh you want to sell me something ?        |'),nl,
     write('|              What dou you have here ?              |'),nl,
@@ -338,7 +341,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Wool',Sellamount ),
         New is (Sellamount * 150),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = milk-> 
         write('|--------------------------------------------|'),nl,
@@ -347,7 +351,8 @@ sell :-
 
         read_integer(Sellamount),
         New is (Sellamount * 200),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = egg -> 
         write('|--------------------------------------------|'),nl,
@@ -357,7 +362,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Egg',Sellamount),
         New is (Sellamount * 100),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = tuna ->
         write('|--------------------------------------------|'),nl,
@@ -367,7 +373,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Tuna',Sellamount),
         New is (Sellamount * 250),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = salmon ->
         write('|--------------------------------------------|'),nl,
@@ -377,7 +384,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Salmon',Sellamount),
         New is (Sellamount * 230),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = gurame ->
         write('|--------------------------------------------|'),nl,
@@ -387,7 +395,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Gurame',Sellamount),
         New is (Sellamount * 210),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = tongkol ->
         write('|--------------------------------------------|'),nl,
@@ -397,7 +406,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Tongkol',Sellamount),
         New is (Sellamount * 200),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = lele ->
         write('|--------------------------------------------|'),nl,
@@ -407,7 +417,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Lele',Sellamount),
         New is (Sellamount * 150),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = wortel ->
         write('|--------------------------------------------|'),nl,
@@ -417,7 +428,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Wortel',Sellamount),
         New is (Sellamount * 60),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = kentang ->
         write('|--------------------------------------------|'),nl,
@@ -427,7 +439,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Kentang',Sellamount),
         New is (Sellamount * 70),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = tomat ->
         write('|--------------------------------------------|'),nl,
@@ -437,7 +450,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Tomat',Sellamount),
         New is (Sellamount * 80),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = stroberi ->
         write('|--------------------------------------------|'),nl,
@@ -447,7 +461,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Stroberi',Sellamount),
         New is (Sellamount * 90),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     Sell_choice = jagung ->
         write('|--------------------------------------------|'),nl,
@@ -457,7 +472,8 @@ sell :-
         read_integer(Sellamount),
         useItem('Jagung',Sellamount),
         New is (Sellamount * 110),
-        updateMoney_sell(New)
+        updateMoney_sell(New),
+        winGame
     ;
     write('|--------------------------------------------|'),nl,
     write('|          There\'s no such item...          |'),nl,
@@ -488,3 +504,19 @@ writeMoney:-
     money(X),
     write('Money is'), write(X).
 
+usePotion :-
+    useItem('Secret potion', 1),
+    class(X),nl,
+    (X = fisherman ->
+        tambahExp(40),
+        tambahExpFish(40)
+    ;
+
+    X = farmer ->
+        tambahExp(40),
+        tambahExpFarm(40)
+    ;
+    X = rancher ->
+        tambahExp(40),
+        tambahExpRanch(40)
+    ) .
