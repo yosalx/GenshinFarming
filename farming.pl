@@ -255,26 +255,26 @@ harvest :-
     equipment('Shovel', LevelShovel, _),
     lokasi(player, X, Y),
     lokasi_farm(Crop, X, Y, Umur),
-    (   (LevelFarm = 1, LevelShovel = 1) ->
+    (   (LevelShovel = 1, LevelFarm = 1) ->
             K is 1
             ;
-        (LevelFarm = 1, LevelShovel = 2) ->
+        (LevelShovel = 1, LevelFarm = 2) ->
             random(1, 11, R1),
             (R1 = 1 -> K is 2; K is 1)
             ;
-        (LevelFarm = 1, LevelShovel = 3) ->
+        (LevelShovel = 1, LevelFarm = 3) ->
             random(1, 11, R2),
             ((R2>0,R2<3) -> K is 2; K is 1)
             ;
-        (LevelFarm = 2, LevelShovel = 1) ->
+        (LevelShovel = 2, LevelFarm = 1) ->
             random(1, 11, R3),
             (R3 = 1 -> K is 2; K is 1)
             ;
-        (LevelFarm = 2, LevelShovel = 2) ->
+        (LevelShovel = 2, LevelFarm = 2) ->
             random(1, 11, R4),
             ((R4>0,R4<3) -> K is 2; K is 1)
             ;
-        (LevelFarm = 2, LevelShovel = 3) ->
+        (LevelShovel = 2, LevelFarm = 3) ->
             random(1, 11, R5),
             ((R5>0,R5<4) -> K is 2; K is 1)
             ;    
