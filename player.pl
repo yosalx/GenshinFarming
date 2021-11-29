@@ -1,9 +1,9 @@
 /*:-include('start.pl').
 */
 explvl(100).
-explvlfarm(50).
-explvlfish(50).
-explvlranch(50).
+explvlfarm(500).
+explvlfish(250).
+explvlranch(250).
 
 
 /* naik level */
@@ -26,6 +26,19 @@ tambahExpFarm(ExpFr1) :-
 
 tambahExpFarm(ExpFr1) :-
     lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
+    LvlFr is 3,
+    ExpFr+ExpFr1 >= LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1-LvlFr*ExplvlFr,
+    retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)),!.
+
+tambahExpFarm(ExpFr1) :-
+    lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
+    LvlFr is 2,
+    ExpFr+ExpFr1 >= LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1-LvlFr*ExplvlFr, naikLvlFr, write('Farming telah naik level !!!\n'), write('Farming telah mencapai level maksimal !!!\n'),
+    retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)),!.
+
+
+tambahExpFarm(ExpFr1) :-
+    lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
     ExpFr+ExpFr1 >= LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1-LvlFr*ExplvlFr, naikLvlFr, write('Farming telah naik level!!!\n'),
     retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)),!.
 
@@ -34,6 +47,19 @@ tambahExpFish(ExpFs1) :-
     lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
     ExpFs+ExpFs1 < LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1,
     retract(expFish(ExpFs)), asserta(expFish(ExpFs2)), !.
+
+tambahExpFish(ExpFs1) :-
+    lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
+    LvlFs is 3,
+    ExpFs+ExpFs1 >= LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1-LvlFs*ExplvlFs,
+    retract(expFish(ExpFr)), asserta(expFish(ExpFr2)),!.
+
+
+tambahExpFish(ExpFs1) :-
+    lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
+    LvlFs is 2,
+    ExpFs+ExpFs1 >= LvlFs*ExplvlFs, ExpFs2 is ExpFs+ExpFs1-LvlFs*ExplvlFs, naikLvlFs, write('Fishing telah naik level!!!\n'), write('Fishing telah mencapai level maksimal!!!\n'),
+    retract(expFish(ExpFr)), asserta(expFish(ExpFr2)),!.
 
 tambahExpFish(ExpFs1) :-
     lvlFish(LvlFs), explvlfish(ExplvlFs), expFish(ExpFs),
