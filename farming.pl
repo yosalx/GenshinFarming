@@ -103,6 +103,7 @@ plant :-
     write('|------------------------------------------------|'),nl.
 
 plant :-
+    useResin,
     lokasi(player, X, Y),
     lokasi(digged_tile, X, Y), !,
     write('         wWWWw               wWWWw           '), nl,
