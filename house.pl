@@ -47,6 +47,7 @@ house :-
     .
 
 sleep :-
+    atHouse(1),
     day(N),
     (N < 101 ->
         write('You went to sleep'),nl,nl,
@@ -58,6 +59,12 @@ sleep :-
     N = 101 ->
         failState
     ).
+sleep :-
+    write('|------------------------------------|'),nl,
+    write('| You can only sleep at house zZzz...|'),nl,
+    write('|------------------------------------|'),nl.
+
+
 
 failState :-
     write('You fail bro').
@@ -66,35 +73,18 @@ peritidur :-
     random(1,15,X),
     (X = 13 ->
         write('hi im peri tidur. Where do you want to go?'),nl,
-        map_peri_tidur,
         read(ChoiceX),
         read(ChoiceY),
-        lokasi(quest,X,Y),
-        lokasi(air,X1,Y1),
-        lokasi(ranch,X2,Y2),
-        lokasi(market,X3,Y3),
-        (ChoiceX = X ->
+        (lokasi(quest,ChoiceX,ChoiceY) ->
             write('you can\'t go there')
             ;
-        ChoiceX = X1 ->
+        lokasi(air,ChoiceX,ChoiceY) ->
             write('you can\'t go there')
             ;
-        ChoiceX = X2 ->
+        lokasi(ranch,ChoiceX,ChoiceY) ->
             write('you can\'t go there')
             ;
-        ChoiceX = X3 ->
-            write('you can\'t go there')
-            ;
-        ChoiceY = Y ->
-            write('you can\'t go there')
-            ;
-        ChoiceY = Y1 ->
-            write('you can\'t go there')
-            ;
-        ChoiceY = Y2 ->
-            write('you can\'t go there')
-            ;
-        ChoiceY = Y3 ->
+        lokasi(market,ChoiceX,ChoiceY) ->
             write('you can\'t go there')
             ;
             teleport(ChoiceX,ChoiceY),
