@@ -75,6 +75,15 @@ a :-
     asserta(atHouse(1)), !,
     nl.
 
+a :-
+    game_start(true),
+    atHouse(1), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|          You are at the house right now,           |'),nl,
+    write('|                    can\'t move :c                   |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
 /* Masuk Quest */
 a :- 
     game_start(true),

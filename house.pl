@@ -6,7 +6,7 @@
 :- include('start.pl').
 */
 :- dynamic(day/1).
-day(364).
+day(1).
 :- dynamic(resin/1).
 resin(5).
 useResin :-
@@ -50,11 +50,12 @@ sleep :-
     atHouse(1),
     day(N),
     (N < 101 ->
-        write('You went to sleep'),nl,nl,
+        write('You went to sleep'), !, nl,nl,
         NextN is N+1,
         retract(day(N)),
         assertz(day(NextN)),
-        write('Day '), write(NextN)
+        write('Day '), write(NextN),
+        forall(lokasi_farm(A,B,C,D), (Dnew is D + 1, retract(lokasi_farm(A,B,C,D)),asserta(lokasi_farm(A,B,C,Dnew)) ))
         ;
     N = 101 ->
         failState

@@ -279,9 +279,11 @@ harvest :-
         (LevelShovel = 2, LevelFarm = 3) ->
             random(1, 11, R5),
             ((R5>0,R5<4) -> K is 2; K is 1)    
-    ), write(K), write(' ini tes'), nl,
+    ), 
+    /* write(K), write(' ini tes')*/ 
+    nl,
     (Crop = wortel, wortel_time(Time), Time =< Umur ->
-            retract(lokasi_farm(_,X,Y,_)),
+            retract(lokasi_farm(_,X,Y,_)),!,
             addExpFarming,
             addItem('Wortel', K)
             /*
@@ -289,7 +291,7 @@ harvest :-
             */
             ;
         Crop = tomat, tomat_time(Time), Time =< Umur ->
-            retract(lokasi_farm(_,X,Y,_)),
+            retract(lokasi_farm(_,X,Y,_)),!,
             addExpFarming,
             addItem('Tomat', K)
             /*
@@ -297,7 +299,7 @@ harvest :-
             */
             ;
         Crop = kentang, kentang_time(Time), Time =< Umur ->
-            retract(lokasi_farm(_,X,Y,_)),
+            retract(lokasi_farm(_,X,Y,_)),!,
             addExpFarming,
             addItem('Kentang', K)
             /*
@@ -305,7 +307,7 @@ harvest :-
             */
             ;
         Crop = jagung, jagung_time(Time), Time =< Umur ->
-            retract(lokasi_farm(_,X,Y,_)),
+            retract(lokasi_farm(_,X,Y,_)),!,
             addExpFarming,
             addItem('Jagung', K)
             /*
@@ -313,13 +315,14 @@ harvest :-
             */
             ;
         Crop = stroberi, stroberi_time(Time), Time =< Umur ->
-            retract(lokasi_farm(_,X,Y,_)),
+            retract(lokasi_farm(_,X,Y,_)),!,
             addExpFarming,
             addItem('Stroberi', K)
             /*
             gachaharvest(LevelFarm, LevelShovel, 'Stroberi')
             */
             ;
+        !,
         write('Sorry, you can\'t harvest your crop right now :(('), nl
     ).
 
