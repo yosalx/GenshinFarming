@@ -96,5 +96,12 @@ help:-
     write('quit  : mengakhiri petualangan'), nl, nl, nl,
 
     write('############################ Navigasi ############################'), nl,
-    write('map      : melihat map'),nl,
-    write('w,a,s,d  : untuk bergerak, pemain tidak dapat bergerak ke danau'), nl.
+    write('map      : melihat map'), nl,
+    write('w,a,s,d  : untuk bergerak, pemain tidak dapat bergerak ke danau'), nl,
+    write('fish     : untuk menangkap ikan'), nl,
+    write('harvest  : untuk mengambil hasil panen'), nl,
+    write('ranch    : untuk mengambil hasil ternak'), nl,
+    write('inventory: untuk melihat inventory sementara'), nl,
+    write('equip    : untuk menggunakan equipment'), nl,
+    write('sleep    : untuk tidur'), nl.
+    

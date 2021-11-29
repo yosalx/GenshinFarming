@@ -94,7 +94,9 @@ failState :-
 
     write('|-------------------------------------------------------------|'),nl,
     write('|   What a pity..... Now sell your soul to paid that debt !   |'),nl,
-    write('|-------------------------------------------------------------|'),nl,nl .
+    write('|-------------------------------------------------------------|'),nl,nl,
+    retract(game_start(1)),
+    assertz(game_start(0)).
 
 peritidur :-
     random(1,15,X),
