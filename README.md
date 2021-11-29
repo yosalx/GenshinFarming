@@ -22,6 +22,6 @@
 2. GNU Prolog installed
 3. consult start.pl on gnu prolog
 4. run command sdebug.
-5. run command [start].\
+5. run command [start].
 6. run command start.
 7. enjoy the game
