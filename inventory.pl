@@ -1,5 +1,5 @@
-:- include('item.pl').
-
+/*:- include('item.pl').
+*/
 inventory :-
     totalInventory(Sum),
     Sum is 0,

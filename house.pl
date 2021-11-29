@@ -1,10 +1,11 @@
-:- include('explore.pl').
-:- dynamic(day/1).
+/*:- include('explore.pl').
 :- include('map.pl').
 :- include('peta.pl').
 :- include('map_peri_tidur.pl').
 :- include('farming.pl').
 :- include('start.pl').
+*/
+:- dynamic(day/1).
 day(364).
 
 house :-

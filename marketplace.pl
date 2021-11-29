@@ -1,8 +1,8 @@
-:- include('ranching.pl').
+/*:- include('ranching.pl').
 :- include('inventory.pl').
 :- include('farming.pl').
 :- include('fishing.pl').
-
+*/
 :- dynamic(potion/1).
 potion(2).
 
@@ -488,8 +488,3 @@ writeMoney:-
     money(X),
     write('Money is'), write(X).
 
-exit :-
-    write('|----------------------------------------------------|'),nl,
-    write('|           Okayy, Hope to See You Soon !!           |'),nl,
-    write('|----------------------------------------------------|'),nl
-    . 

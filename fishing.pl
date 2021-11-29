@@ -1,13 +1,7 @@
-:- include('item.pl').
+/* :- include('item.pl').
 :- include('player.pl').
 :- include('start.pl').
-
-fish :-
-    equipment('Fishing Rod', _, 0), !,
-    write('|----------------------------------------------------|'),nl,
-    write('|     Can\'t fish, use your fishing rod first!        |'),nl,
-    write('|----------------------------------------------------|'),nl
-    .
+*/
 
 addExpFishing :-
     class(X),
@@ -19,6 +13,14 @@ addExpFishing :-
         tambahExp(10),
         write('You gained 10 exp.'), nl
     ).
+
+fish :-
+    equipment('Fishing Rod', _, 0), !,
+    write('|----------------------------------------------------|'),nl,
+    write('|     Can\'t fish, use your fishing rod first!        |'),nl,
+    write('|----------------------------------------------------|'),nl
+    .
+
 
 fish :- 
     equipment('Fishing Rod', A, 1),

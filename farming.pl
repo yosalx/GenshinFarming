@@ -1,6 +1,6 @@
-:- include('item.pl').
-:- include('player.pl').
-
+/*:- include('item.pl').
+ :- include('player.pl').
+*/
 dig :-
     equipment('Shovel', _, 1),
     lokasi(player, X, Y),
@@ -255,6 +255,7 @@ harvest :-
     equipment('Shovel', LevelShovel, _),
     lokasi(player, X, Y),
     lokasi_farm(Crop, X, Y, Umur),
+    (
         (LevelShovel = 1, LevelFarm = 1 ->
             K is 1
             ;

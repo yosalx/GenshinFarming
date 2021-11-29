@@ -73,7 +73,7 @@ w :-
     lokasi(player, X, Y),
     YNew is Y-1,
     lokasi(house, X, YNew),
-    write('Anda memasuki house.'),
+    house,
     nl,
     retract(atHouse(0)),
     asserta(atHouse(1)), !,

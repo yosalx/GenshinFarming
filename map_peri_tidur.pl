@@ -1,9 +1,3 @@
-:- dynamic(lokasi/3).
-:- dynamic(lokasi_farm/4).
-
-include_map_peri_tidur :-
-    [peta],
-    load_peta.
 map_peri_tidur :-
     game_start(true), !,
     draw_map_peri_tidur.

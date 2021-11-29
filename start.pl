@@ -8,18 +8,19 @@ game_start(false).
 init_game :-
     retract(game_start(false)),
     asserta(game_start(true)),
-    [map],
-    include_map,
-    [explore],
-    include_explore,
-    [ranching],
-    [marketplace],
-    [inventory],
-    [farming],
-    [fishing],
-    [map_peri_tidur],
-    [house],
-    include_map_peri_tidur.
+    [map], nl,
+    include_map, nl,
+    [explore], nl,
+    [map_peri_tidur], nl,
+    include_explore, nl, 
+    [ranching], nl,
+    [marketplace], nl,
+    [inventory], nl,
+    [farming], nl,
+    [fishing], nl,
+    [house], nl,
+    [quest], nl,
+    [player], nl.
 
 sdebug :-
     init_game.

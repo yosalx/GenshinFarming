@@ -1,5 +1,5 @@
-:-include('start.pl').
-
+/*:-include('start.pl').
+*/
 explvl(100).
 explvlfarm(50).
 explvlfish(50).

@@ -1,8 +1,8 @@
-:- include('inventory.pl').
+/*:- include('inventory.pl').
 :- include('player.pl').
 :- include('start.pl').
 :- include('house.pl').
-
+*/
 toRanch :-  write(''),nl,
             write('                           +&-          '),nl,
             write('                         _.-^-._    .--.'),nl,
@@ -36,9 +36,10 @@ product(milk, 5).
 product(wool, 3).
 product(egg, 2).
 
+/*
 :- dynamic(day/1).
 day(3).
-
+*/
 
 showanimal :-
 forall((animal(Sum, Name)), (listanimal(Sum, Name)))
