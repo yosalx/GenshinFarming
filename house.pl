@@ -54,6 +54,7 @@ sleep :-
         NextN is N+1,
         retract(day(N)),
         assertz(day(NextN)),
+        peritidur,
         write('Day '), write(NextN),
         forall(lokasi_farm(A,B,C,D), (Dnew is D + 1, retract(lokasi_farm(A,B,C,D)),asserta(lokasi_farm(A,B,C,Dnew)) ))
         ;
@@ -68,7 +69,30 @@ sleep :-
 
 
 failState :-
-    write('You fail bro').
+    write('                                                             @         '),nl,
+    write('                                                           @@  &@@@@        '),nl,
+    write('                                                          *#&    @   %@     '),nl,
+    write('                    @                                /    @#@  @##  &#@     '),nl,
+    write('                   @@/                              @@  . @*   *@   .@      '),nl,
+    write('                   @*@&                            @ @ @#@    @#@   @#@     '),nl,
+    write('                    @, @    @@& ########## @@/   @@./@ &#@   @#@    /#@     '),nl,
+    write('                     @,,@@ ####################&@*,@@  (##(@@ #@   @#@      '),nl,
+    write('                      @@###################(#####(@@      @@#######@@       '),nl,
+    write('                    @@#%@@%%###########(#(####%%@@% @        #@             '),nl,
+    write('                   @@#%%@@  @@%############%@*  @#%##@%    @#@              '),nl,
+    write('    @@            @@###%%@      @@#####%@@     @@%%##.@     #@              '),nl,
+    write('   @##@%%%&@      @@####%%&@     @@@##@@@     @%%%####@@  @#@               '),nl,
+    write('   @@%%.   @%@    @@##########@@@########@@&##########@@   #@               '),nl,
+    write('            @%@   @@#####/###########################%@  @#@                '),nl,
+    write('             @#(   @@###############################%@@   #@                '),nl,
+    write('             @%@    @@%############################%@@  @#%                 '),nl,
+    write('              @%#@   @@&%########################%@@     #@                 '),nl,
+    write('                @@%%%@@@@@%%##################%%@@     @#@                  '),nl,
+    write('                           .@@%#%%######%%%%@@        @##@           '),nl,nl,
+
+    write('|-------------------------------------------------------------|'),nl,
+    write('|   What a pity..... Now sell your soul to paid that debt !   |'),nl,
+    write('|-------------------------------------------------------------|'),nl,nl .
 
 peritidur :-
     random(1,15,X),
@@ -100,6 +124,7 @@ peritidur :-
 listDiary([]).
 
 writeDiary :-
+    atHouse(1),
     listDiary(List),
     write('write your diary here'),nl,
     read(Input),
@@ -118,6 +143,7 @@ showDiaryEntry([[Day, _]|T]) :-
 
 
 readDiary :-
+    atHouse(1),
     listDiary(List),
     showDiaryEntry(List),
     write('select day'),nl,
