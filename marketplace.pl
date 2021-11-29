@@ -337,7 +337,8 @@ sell :-
 
         read_integer(Sellamount),
         useItem('Wool',Sellamount ),
-        updateMoney_sell(150)
+        New is (Sellamount * 150),
+        updateMoney_sell(New)
     ;
     Sell_choice = milk-> 
         write('|--------------------------------------------|'),nl,
@@ -345,8 +346,8 @@ sell :-
         write('|--------------------------------------------|'),nl,
 
         read_integer(Sellamount),
-        useItem('Milk',Sellamount ),
-        updateMoney_sell(200)
+        New is (Sellamount * 200),
+        updateMoney_sell(New)
     ;
     Sell_choice = egg -> 
         write('|--------------------------------------------|'),nl,
@@ -355,58 +356,109 @@ sell :-
 
         read_integer(Sellamount),
         useItem('Egg',Sellamount),
-        updateMoney_sell(100)
+        New is (Sellamount * 100),
+        updateMoney_sell(New)
     ;
     Sell_choice = tuna ->
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Tuna',Sellamount),
-    updateMoney_sell(250)
+        read_integer(Sellamount),
+        useItem('Tuna',Sellamount),
+        New is (Sellamount * 250),
+        updateMoney_sell(New)
     ;
     Sell_choice = salmon ->
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Salmon',Sellamount),
-    updateMoney_sell(230)
+        read_integer(Sellamount),
+        useItem('Salmon',Sellamount),
+        New is (Sellamount * 230),
+        updateMoney_sell(New)
     ;
     Sell_choice = gurame ->
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Gurame',Sellamount),
-    updateMoney_sell(210)
+        read_integer(Sellamount),
+        useItem('Gurame',Sellamount),
+        New is (Sellamount * 210),
+        updateMoney_sell(New)
     ;
     Sell_choice = tongkol ->
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Tongkol',Sellamount),
-    updateMoney_sell(200)
+        read_integer(Sellamount),
+        useItem('Tongkol',Sellamount),
+        New is (Sellamount * 200),
+        updateMoney_sell(New)
     ;
     Sell_choice = lele ->
-    write('|--------------------------------------------|'),nl,
-    write('|       How many do you want to sell ?       |'),nl,
-    write('|--------------------------------------------|'),nl,
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
 
-    read_integer(Sellamount),
-    useItem('Lele',Sellamount),
-    updateMoney_sell(150)
+        read_integer(Sellamount),
+        useItem('Lele',Sellamount),
+        New is (Sellamount * 150),
+        updateMoney_sell(New)
     ;
-    Sell_choice = wortel ->write('');
-    Sell_choice = tomat ->write('');
-    Sell_choice = kentang ->write('');
-    Sell_choice = jagung ->write('');
-    Sell_choice = stroberi ->write('');
+    Sell_choice = wortel ->
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Wortel',Sellamount),
+        New is (Sellamount * 60),
+        updateMoney_sell(New)
+    ;
+    Sell_choice = kentang ->
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Kentang',Sellamount),
+        New is (Sellamount * 70),
+        updateMoney_sell(New)
+    ;
+    Sell_choice = tomat ->
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Tomat',Sellamount),
+        New is (Sellamount * 80),
+        updateMoney_sell(New)
+    ;
+    Sell_choice = stroberi ->
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Stroberi',Sellamount),
+        New is (Sellamount * 90),
+        updateMoney_sell(New)
+    ;
+    Sell_choice = jagung ->
+        write('|--------------------------------------------|'),nl,
+        write('|       How many do you want to sell ?       |'),nl,
+        write('|--------------------------------------------|'),nl,
+
+        read_integer(Sellamount),
+        useItem('Jagung',Sellamount),
+        New is (Sellamount * 110),
+        updateMoney_sell(New)
+    ;
     write('|--------------------------------------------|'),nl,
     write('|          There\'s no such item...          |'),nl,
     write('|--------------------------------------------|'),nl
