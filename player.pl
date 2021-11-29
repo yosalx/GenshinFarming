@@ -16,7 +16,7 @@ retract(exp(Exp)), asserta(exp(Exp2)), !.
 tambahExp(Exp1) :-
 lvl(Lvl), explvl(Explvl), exp(Exp),
 Exp+Exp1 >= Lvl*Explvl, Exp2 is Exp+Exp1-Lvl*Explvl, naikLvl, write('Naik Level!!!\n'),
-retract(exp(Exp)), asserta(exp(Exp2)), tambahExp(0),!.
+retract(exp(Exp)), asserta(exp(Exp2)),!.
 
 
 tambahExpFarm(ExpFr1) :-
@@ -27,7 +27,7 @@ tambahExpFarm(ExpFr1) :-
 tambahExpFarm(ExpFr1) :-
     lvlFarm(LvlFr), explvlfarm(ExplvlFr), expFarm(ExpFr),
     ExpFr+ExpFr1 >= LvlFr*ExplvlFr, ExpFr2 is ExpFr+ExpFr1-LvlFr*ExplvlFr, naikLvlFr, write('Farming telah naik level!!!\n'),
-    retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)), tambahExpFarm(0),!.
+    retract(expFarm(ExpFr)), asserta(expFarm(ExpFr2)),!.
 
 
 tambahExpFish(ExpFs1) :-
@@ -49,7 +49,7 @@ tambahExpRanch(ExpRn1) :-
 tambahExpRanch(ExpRn1) :-
     lvlRanch(LvlRn), explvlranch(ExplvlRn), expRanch(ExpRn),
     ExpRn+ExpRn1 >= LvlRn*ExplvlRn, ExpRn2 is ExpRn+ExpRn1-LvlRn*ExplvlRn, naikLvlRn, write('Ranching telah naik level!!!\n'),
-    retract(expRanch(ExpRn)), asserta(expRanch(ExpRn2)), tambahExpRanch(0),!.
+    retract(expRanch(ExpRn)), asserta(expRanch(ExpRn2)),!.
 
 
 /*stat dinamik*/

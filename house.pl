@@ -48,14 +48,14 @@ house :-
 
 sleep :-
     day(N),
-    (N < 365 ->
+    (N < 101 ->
         write('You went to sleep'),nl,nl,
         NextN is N+1,
         retract(day(N)),
         assertz(day(NextN)),
         write('Day '), write(NextN)
         ;
-    N = 365 ->
+    N = 101 ->
         failState
     ).
 
