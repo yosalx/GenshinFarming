@@ -50,7 +50,7 @@ inventory :-
     .
 
 :- dynamic(totalInventory/1).
-totalInventory(10).
+totalInventory(4).
 
 addInventory(N) :-
     totalInventory(Sum),
