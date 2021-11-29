@@ -330,13 +330,13 @@ sell :-
     write('|            Now what do you want to sell ?          |'),nl,
     write('|----------------------------------------------------|'),nl,
     read(Sell_choice),
-    (Sell_choice = woll-> 
+    (Sell_choice = wool-> 
         write('|--------------------------------------------|'),nl,
         write('|       How many do you want to sell ?       |'),nl,
         write('|--------------------------------------------|'),nl,
 
         read_integer(Sellamount),
-        useItem('Woll',Sellamount ),
+        useItem('Wool',Sellamount ),
         updateMoney_sell(150)
     ;
     Sell_choice = milk-> 
@@ -435,3 +435,9 @@ updateMoney_sell(N):-
 writeMoney:-
     money(X),
     write('Money is'), write(X).
+
+exit :-
+    write('|----------------------------------------------------|'),nl,
+    write('|           Okayy, Hope to See You Soon !!           |'),nl,
+    write('|----------------------------------------------------|'),nl
+    . 
