@@ -101,7 +101,7 @@ naikLvlRn:-
 
 
 /* bikin karakter */
-createChara(A) :- retract(lvl(_)),asserta(lvl(0)), retract(class(_)), asserta(class(A)), naikLvl,!.
+createChara(A) :- retract(lvl(_)),asserta(lvl(1)), retract(class(_)), asserta(class(A)), naikLvl,!.
 
 /* print stat */
 status :- 
