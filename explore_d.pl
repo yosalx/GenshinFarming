@@ -70,11 +70,11 @@ d :-
     lokasi(player, X, Y),
     XNew is X+1,
     lokasi(house, XNew, Y),
-    house,
+    
     nl,
     retract(atHouse(0)),
     asserta(atHouse(1)), !,
-    nl.
+    house,nl.
 
 /* udah di house */
 d :-
