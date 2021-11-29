@@ -51,6 +51,8 @@ sleep :-
     day(N),
     (N < 101 ->
         write('You went to sleep'), !, nl,nl,
+        retract(resin(R)),
+        assertz(resin(5)),
         NextN is N+1,
         retract(day(N)),
         assertz(day(NextN)),
