@@ -59,15 +59,26 @@ pilihClass :-
     (X = 1 -> 
         retract(class(none)),
         asserta(class(fisherman)),
-        createChara(fisherman);
+        createChara(fisherman),
+        write('|------------------------------------------------|'),nl,
+        write('|           Good luck getting the fish !         |'),nl,
+        write('|------------------------------------------------|'),nl
+        ;
     X = 2 ->
         retract(class(none)),
         asserta(class(farmer)),
-        createChara(farmer);
+        createChara(farmer),
+        write('|------------------------------------------------|'),nl,
+        write('|           Good luck with your farm !           |'),nl,
+        write('|------------------------------------------------|'),nl;
     X = 3 ->
         retract(class(none)),
         asserta(class(rancher)),
-        createChara(rancher);
+        createChara(rancher),
+        write('|------------------------------------------------|'),nl,
+        write('|          Good luck keeping the animal !        |'),nl,
+        write('|------------------------------------------------|'),nl
+        ;
     write('There\'s only 3 option you know')
     )
     . 
