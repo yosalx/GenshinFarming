@@ -12,16 +12,16 @@ quest(7,23,56,1,0).
 quest(8,14,16,17,0).
 quest(9,15,20,16,0).
 quest(10,100,100,100,0).
-reward(1,100,250).
-reward(2,500,300).
-reward(3,1300,300).
-reward(4,1200, 300).
-reward(5,600,300).
-reward(6,3300,400).
-reward(7,8000,600).
-reward(8,4700,600).
-reward(9,4100,500).
-reward(10,30000,1000).
+reward(1,50,50).
+reward(2,100,100).
+reward(3,150,150).
+reward(4,200, 200).
+reward(5,250,250).
+reward(6,300,300).
+reward(7,350,350).
+reward(8,400,400).
+reward(9,450,450).
+reward(10,500,500).
 /*onQuest : apakah player masih dalam quest*/
 :- dynamic(onQuest/1).
 onQuest(0).
@@ -94,6 +94,7 @@ questDone :-
     G is E + D,
     retract(gold(E)),
     asserta(gold(G)).
+    winGame.
 /*questProgress mengurangi barang yg harus diambil*/
 questProgress(yields) :- 
     playerQuest(A, B, C),
