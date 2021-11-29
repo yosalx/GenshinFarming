@@ -8,11 +8,28 @@
 day(364).
 
 house :-
-    write('What do you want to do'),nl,
-    write('-  Sleep'),nl,
-    write('- writeDiary'),nl,
-    write('- readDiary'),nl,
-    write('- exit'),nl.
+    write('        )'),nl,
+    write('       ( _   _._'),nl,
+    write('        |_|-^_~_`-._'),nl,
+    write('    _.-^-_~_-~_-~-_`-._'),nl,
+    write('_.-^_~-_~-_-~-_~_~-_~-_`-._'),nl,
+    write('~~~~~~~~~~~~~~~~~~~~~~~~~~~~~'),nl,
+    write('  |  []  []   []   []  [] |'),nl,
+    write('  |           __    ___   |'),nl,
+    write('._|  []  []  | .|  [___]  |_._._._._._._._._._._._._._._._._.'),nl,
+    write('|=|________()|__|()_______|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|=|'),nl,
+    write('^^^^^^^^^^^^^^^ === ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^'),nl,
+    write('                   ==='),nl,
+    write('                       ==='),nl,
+
+    write('|--------------------------------------------|'),nl,
+    write('|            Home Sweet Home .....           |'),nl,
+    write('|         What do you want to do ?           |'),nl,
+    write('|         - Sleep                            |'),nl,
+    write('|         - writeDiary                       |'),nl,
+    write('|         - exit                             |'),nl,
+    write('|--------------------------------------------|'),nl
+    .
 
 sleep :-
     day(N),
