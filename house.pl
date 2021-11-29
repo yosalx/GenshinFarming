@@ -54,6 +54,7 @@ sleep :-
         NextN is N+1,
         retract(day(N)),
         assertz(day(NextN)),
+        peritidur,
         write('Day '), write(NextN),
         forall(lokasi_farm(A,B,C,D), (Dnew is D + 1, retract(lokasi_farm(A,B,C,D)),asserta(lokasi_farm(A,B,C,Dnew)) ))
         ;
